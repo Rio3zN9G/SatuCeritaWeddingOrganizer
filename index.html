@@ -1,0 +1,2785 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding SatuCeritaOrganizer - Pernikahan Impian Anda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Variabel Warna & Font */
+        :root {
+            --white: #ffffff;
+            --cream: #f8f5f2;
+            --soft-gold: #d4af37;
+            --gold-dark: #b8941f;
+            --pastel-pink: #f9e4e4;
+            --pastel-blue: #e4f0f9;
+            --dark-text: #333333;
+            --light-text: #666666;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-slow: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.15);
+            --gradient-gold: linear-gradient(135deg, var(--soft-gold) 0%, var(--gold-dark) 100%);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--dark-text);
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-gold);
+            margin: 1rem auto;
+            animation: lineExpand 1.5s ease-out;
+        }
+
+        .section-title p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--light-text);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.7s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient-gold);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--soft-gold);
+            border: 2px solid var(--soft-gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--soft-gold);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--soft-gold);
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background-color: var(--soft-gold);
+            transition: var(--transition);
+        }
+
+        .logo:hover::after {
+            left: 0;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--soft-gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--soft-gold);
+            transition: var(--transition);
+        }
+
+        .mobile-menu:hover {
+            transform: rotate(90deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/img/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: textReveal 1.5s ease;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease 0.5s both;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+        }
+
+        .hero .btn {
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        /* Profile Section */
+        .profile {
+            background-color: var(--cream);
+            position: relative;
+        }
+
+        .profile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            pointer-events: none;
+        }
+
+        .profile-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .profile-text {
+            flex: 1;
+        }
+
+        .profile-text h2 {
+            color: var(--soft-gold);
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(212,175,55,0.1) 0%, transparent 50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .profile-image:hover {
+            transform: translateY(-10px) rotate(1deg);
+        }
+
+        /* Crew Slider */
+        .crew-slider-container {
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .crew-slider {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .crew-card {
+            min-width: 300px;
+            margin: 0 1rem;
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            opacity: 0.7;
+            transform: scale(0.9);
+        }
+
+        .crew-card.active {
+            opacity: 1;
+            transform: scale(1);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .crew-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(212,175,55,0.05) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .crew-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .crew-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .crew-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .crew-card:hover .crew-image img {
+            transform: scale(1.1);
+        }
+
+        .crew-info {
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .crew-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .crew-info p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        .slider-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background-color: var(--soft-gold);
+            transform: scale(1.3);
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--soft-gold);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .slider-arrow:hover {
+            background-color: var(--gold-dark);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-arrow.prev {
+            left: 0;
+        }
+
+        .slider-arrow.next {
+            right: 0;
+        }
+
+        /* Package Section */
+        .packages {
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .package-tabs-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .package-tabs {
+            display: flex;
+            background-color: var(--cream);
+            border-radius: 50px;
+            padding: 0.5rem;
+            box-shadow: var(--shadow-light);
+        }
+
+        .tab-btn {
+            padding: 1rem 2.5rem;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--light-text);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border-radius: 50px;
+        }
+
+        .tab-btn.active {
+            color: var(--soft-gold);
+            background-color: var(--white);
+            box-shadow: var(--shadow-light);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .package-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(212,175,55,0.1);
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .package-card.featured {
+            border: 2px solid var(--soft-gold);
+            transform: scale(1.05);
+        }
+
+        .package-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background-color: var(--soft-gold);
+            color: var(--white);
+            padding: 0.5rem 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+            z-index: 2;
+        }
+
+        .package-header {
+            background: var(--gradient-gold);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .package-header h3 {
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .package-price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .package-price span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .package-body {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .package-features {
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--soft-gold);
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(212,175,55,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-package-info {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: var(--cream);
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+        }
+
+        .custom-package-info p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Vendor Categories */
+        .vendor-categories {
+            margin-top: 3rem;
+        }
+
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .category-btn {
+            padding: 0.8rem 1.8rem;
+            background-color: var(--cream);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-btn.active {
+            background-color: var(--soft-gold);
+            color: var(--white);
+        }
+
+        .vendor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .vendor-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .vendor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .vendor-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .vendor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .vendor-card:hover .vendor-image img {
+            transform: scale(1.1);
+        }
+
+        .vendor-info {
+            padding: 1.8rem;
+        }
+
+        .vendor-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .vendor-details {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        /* Testimonial Section */
+        .testimonials {
+            background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--cream) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            pointer-events: none;
+        }
+
+        .testimonial-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--shadow-medium);
+            background-color: var(--white);
+        }
+
+        .testimonial-slides {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .client-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 2rem;
+            border: 4px solid var(--soft-gold);
+            box-shadow: var(--shadow-medium);
+            transition: var(--transition);
+        }
+
+        .client-image:hover {
+            transform: scale(1.05);
+        }
+
+        .client-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--soft-gold);
+            position: absolute;
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .testimonial-text::before {
+            top: -20px;
+            left: -20px;
+        }
+
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -20px;
+        }
+
+        .client-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .wedding-date {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 2.5rem;
+            gap: 1rem;
+        }
+
+        .slider-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background-color: var(--soft-gold);
+            transform: scale(1.3);
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--soft-gold);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .slider-arrow:hover {
+            background-color: var(--gold-dark);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-arrow.prev {
+            left: 20px;
+        }
+
+        .slider-arrow.next {
+            right: 20px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            color: var(--soft-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .contact-item:hover {
+            background-color: var(--cream);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            margin-right: 1.2rem;
+            color: var(--soft-gold);
+            font-size: 1.3rem;
+            width: 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--cream);
+            color: var(--soft-gold);
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background-color: var(--soft-gold);
+            color: var(--white);
+            transform: translateY(-5px) rotate(10deg);
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25D366;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-btn i {
+            margin-right: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: var(--cream);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-medium);
+            transition: var(--transition);
+        }
+
+        .contact-form:hover {
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-family: inherit;
+            transition: var(--transition);
+            background-color: var(--white);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--soft-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-text) 0%, #222 100%);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(212,175,55,0.05)"/></svg>');
+            background-size: cover;
+            pointer-events: none;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--soft-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .footer-links h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            color: var(--soft-gold);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .footer-links ul li:hover {
+            transform: translateX(5px);
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--soft-gold);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Vendor Selection Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .vendor-modal {
+            background-color: var(--white);
+            border-radius: 20px;
+            width: 95%;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2.5rem;
+            position: relative;
+            transform: translateY(50px) scale(0.9);
+            opacity: 0;
+            transition: var(--transition-slow);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .modal-overlay.active .vendor-modal {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-header h2 {
+            color: var(--soft-gold);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--light-text);
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-modal:hover {
+            color: var(--dark-text);
+            background-color: var(--cream);
+        }
+
+        .modal-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            justify-content: center;
+        }
+
+        .modal-category-btn {
+            padding: 0.7rem 1.5rem;
+            background-color: var(--cream);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .modal-category-btn.active {
+            background-color: var(--soft-gold);
+            color: var(--white);
+        }
+
+        .modal-vendor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .modal-vendor-card {
+            background-color: var(--cream);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            box-shadow: var(--shadow-light);
+            position: relative;
+        }
+
+        .modal-vendor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .modal-vendor-card.selected {
+            border-color: var(--soft-gold);
+            transform: scale(1.05);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .modal-vendor-image {
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .modal-vendor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .modal-vendor-card:hover .modal-vendor-image img {
+            transform: scale(1.1);
+        }
+
+        .modal-vendor-info {
+            padding: 1.2rem;
+        }
+
+        .modal-vendor-info h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-vendor-info p {
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+
+        .selected-vendors {
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .selected-vendors h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .selected-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .selected-item {
+            background: var(--gradient-gold);
+            color: var(--white);
+            padding: 0.7rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: var(--shadow-light);
+        }
+
+        .remove-vendor {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .remove-vendor:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .total-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--soft-gold);
+            text-align: right;
+            margin-top: 1.5rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes textReveal {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(10%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes lineExpand {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 80px;
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textSlash {
+            0% {
+                transform: translateX(-100%) skewX(-15deg);
+            }
+            100% {
+                transform: translateX(200%) skewX(-15deg);
+            }
+        }
+
+        @keyframes blockReveal {
+            0% {
+                transform: scaleX(0);
+                transform-origin: left;
+            }
+            50% {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+            51% {
+                transform-origin: right;
+            }
+            100% {
+                transform: scaleX(0);
+                transform-origin: right;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .float-animation {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* Text Animation Styles */
+        .animated-text {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .animated-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.7s;
+        }
+
+        .animated-text:hover::before {
+            left: 100%;
+        }
+
+        /* Enhanced Text Animation */
+        .text-slash {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .text-slash::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            transform: translateX(-100%) skewX(-15deg);
+            transition: transform 0.6s ease;
+        }
+
+        .text-slash:hover::before {
+            transform: translateX(200%) skewX(-15deg);
+        }
+
+        /* Block Reveal Animation */
+        .block-reveal {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .block-reveal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--soft-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s ease;
+            z-index: -1;
+        }
+
+        .block-reveal:hover::before {
+            transform: scaleX(1);
+        }
+
+        .block-reveal:hover {
+            color: var(--white);
+        }
+
+        /* New Vendor Showcase Section */
+        .vendor-showcase {
+            background-color: var(--cream);
+            padding: 4rem 0;
+        }
+
+        .vendor-category {
+            margin-bottom: 4rem;
+        }
+
+        .vendor-category h3 {
+            color: var(--soft-gold);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .vendor-category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .vendor-showcase-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .vendor-showcase-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .vendor-showcase-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .vendor-showcase-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .vendor-showcase-card:hover .vendor-showcase-image img {
+            transform: scale(1.1);
+        }
+
+        .vendor-showcase-info {
+            padding: 1.5rem;
+        }
+
+        .vendor-showcase-info h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .vendor-showcase-info p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .vendor-showcase-price {
+            color: var(--soft-gold);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Enhanced Vendor Modal */
+        .vendor-category-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--soft-gold);
+            color: var(--white);
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .modal-category-btn {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 1.5rem;
+        }
+
+        .modal-vendor-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-vendor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, transparent 50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .vendor-price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--soft-gold);
+            color: var(--white);
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .package-card.featured {
+                transform: scale(1);
+            }
+            
+            .package-card.featured:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .profile-content {
+                flex-direction: column;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+            
+            .slider-arrow {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 3rem;
+                transition: var(--transition);
+                box-shadow: var(--shadow-heavy);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .package-tabs {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .modal-vendor-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+            
+            .testimonial-slide {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 4rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .crew-grid, .package-grid, .vendor-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-vendor-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+            }
+            
+            .modal-actions .btn {
+                width: 100%;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a class="logo animated-text"><img src="assets/img/logo.png" height="50%" width="50%"></a>
+                <ul class="nav-links">
+                    <li><a href="#home" class="animated-text block-reveal">Home</a></li>
+                    <li><a href="#profile" class="animated-text block-reveal">Profile</a></li>
+                    <li><a href="#packages" class="animated-text block-reveal">Package</a></li>
+                    <li><a href="#vendors" class="animated-text block-reveal">Vendors</a></li>
+                    <li><a href="#testimonials" class="animated-text block-reveal">Testimoni</a></li>
+                    <li><a href="#contact" class="animated-text block-reveal">Kontak</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="text-slash">Satu Cerita Wedding Organizer</h1>
+                <p class="text-slash">We're to Make your dream weeding</p>
+                <a href="#packages" class="btn btn-primary">Lihat Paket Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="profile">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="animated-text text-slash">Tentang Kami</h2>
+                <p>Tim profesional dengan pengalaman lebih dari 5 tahun dalam mewujudkan pernikahan impian</p>
+            </div>
+            <div class="profile-content fade-in">
+                <div class="profile-text">
+                    <h2 class="animated-text text-slash">Wedding SatuCeritaOrganizer</h2>
+                    <p>Sebagai penyedia jasa wedding organizer profesional dengan pengalaman lebih dari 5 tahun, kami berkomitmen untuk mewujudkan pernikahan impian Anda dengan sempurna. Setiap pernikahan adalah cerita unik, dan kami hadir untuk memastikan cerita Anda menjadi kenangan indah yang tak terlupakan.</p>
+                    <p>Dengan tim kreatif dan berpengalaman, kami menawarkan layanan lengkap mulai dari perencanaan, koordinasi, hingga eksekusi di hari-H. Nilai utama kami adalah profesionalitas, perhatian terhadap detail, dan kepuasan klien.</p>
+                </div>
+                <div class="profile-image float-animation">
+                    <img src="https://images.unsplash.com/photo-1554734867-bf3c00a49371?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Tim Wedding SatuCeritaOrganizer">
+                </div>
+            </div>
+            
+            <div class="section-title" style="margin-top: 4rem;">
+                <h2 class="animated-text text-slash">Tim Kami</h2>
+                <p>Bertemu dengan tim profesional yang akan mewujudkan pernikahan impian Anda</p>
+            </div>
+            
+            <div class="crew-slider-container">
+                <div class="slider-arrow prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="slider-arrow next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                
+                <div class="crew-slider">
+                    <div class="crew-card active">
+                        <div class="crew-image">
+                            <img src="assets/img/adit.jpg" alt="Sarah - Wedding Planner">
+                        </div>
+                        <div class="crew-info">
+                            <h3>M. Aditya fahrul fauzy</h3>
+                            <p>Crew</p>
+                        </div>
+                    </div>
+                    <div class="crew-card">
+                        <div class="crew-image">
+                            <img src="assets/img/Nabila.jpg" alt="Budi - Dekorator">
+                        </div>
+                        <div class="crew-info">
+                            <h3>Nabila S. Alya</h3>
+                            <p>Crew</p>
+                        </div>
+                    </div>
+                    <div class="crew-card">
+                        <div class="crew-image">
+                            <img src="assets/img/Mely.jpg" alt="Maya - Koordinator">
+                        </div>
+                        <div class="crew-info">
+                            <h3>Mely Ristiani Sutrawana</h3>
+                            <p>Crew</p>
+                        </div>
+                    </div>
+                    <div class="crew-card">
+                        <div class="crew-image">
+                            <img src="assets/img/Reka.jpg" alt="Rizky - Vendor Manager">
+                        </div>
+                        <div class="crew-info">
+                            <h3>Reka Indra Restik</h3>
+                            <p>Admin</p>
+                        </div>
+                    </div>
+                    <div class="crew-card">
+                        <div class="crew-image">
+                            <img src="assets/img/Reka.jpg" alt="Rizky - Vendor Manager">
+                        </div>
+                        <div class="crew-info">
+                            <h3>Putwi Dede Lestari</h3>
+                            <p>Crew</p>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="slider-controls">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Section -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="animated-text text-slash">Paket Layanan</h2>
+                <p>Kami menawarkan berbagai paket sesuai kebutuhan dan budget Anda</p>
+            </div>
+            
+            <div class="package-tabs-container">
+                <div class="package-tabs">
+                    <button class="tab-btn active" data-tab="wedding-only">Wedding Only</button>
+                    <button class="tab-btn" data-tab="all-package">All Package</button>
+                </div>
+            </div>
+            
+            <!-- Wedding Only Tab -->
+            <div class="tab-content active" id="wedding-only">
+                <div class="package-grid">
+                    <div class="package-card fade-in">
+                        <div class="package-header">
+                            <h3>Paket Swip</h3>
+                            <div class="package-price">Rp 2.500.000</div>
+                        </div>
+                        <div class="package-body">
+                            <p>Dengan 4 Crew 8 Jam Kerja 2x Meetings</p>
+                            <ul class="package-features">
+                                <li>4 Crew Profesional</li>
+                                <li>8 Jam Kerja</li>
+                                <li>2x Meetings</li>
+                                <li>1x Survey Lokasi</li>
+                                <li>Rundown Acara</li>
+                                <li>Buku Tamu</li>
+                                <li>Amplop & Alat Tulis</li>
+                                <li>Koordinator hari-H</li>
+                            </ul>
+                            <button class="btn btn-primary btn-order" data-package="Swip Paket" data-price="2500000">Pesan Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- All Package Tab -->
+            <div class="tab-content" id="all-package">
+                <div class="package-grid">
+                    <div class="package-card fade-in">
+                        <div class="package-header">
+                            <h3>Paket A - Elegant</h3>
+                            <div class="package-price">Rp 75.000.000</div>
+                        </div>
+                        <div class="package-body">
+                            <p>Paket lengkap untuk pernikahan elegan dan mewah</p>
+                            <ul class="package-features">
+                                <li>Konsultasi perencanaan 8 sesi</li>
+                                <li>Dekorasi venue lengkap dengan tema elegan</li>
+                                <li>Makeup artist untuk pengantin & keluarga</li>
+                                <li>Foto & videografi 10 jam (termasuk album foto mewah)</li>
+                                <li>MC profesional dan live music</li>
+                                <li>Katering premium untuk 200 tamu</li>
+                                <li>Dessert table dan candy bar</li>
+                                <li>Koordinator hari-H dan asisten</li>
+                                <li>Undangan digital dan fisik</li>
+                                <li>Souvenir untuk 200 tamu</li>
+                            </ul>
+                            <button class="btn btn-primary btn-order" data-package="Paket A - Elegant" data-price="75000000">Pesan Sekarang</button>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card fade-in featured">
+                        <div class="package-badge">Populer</div>
+                        <div class="package-header">
+                            <h3>Paket B - Classic</h3>
+                            <div class="package-price">Rp 50.000.000</div>
+                        </div>
+                        <div class="package-body">
+                            <p>Paket ekonomis dengan kualitas terjamin untuk pernikahan klasik</p>
+                            <ul class="package-features">
+                                <li>Konsultasi perencanaan 5 sesi</li>
+                                <li>Dekorasi venue utama</li>
+                                <li>Makeup artist untuk pengantin</li>
+                                <li>Foto & videografi 6 jam (termasuk album foto)</li>
+                                <li>MC profesional</li>
+                                <li>Katering untuk 150 tamu</li>
+                                <li>Dessert table</li>
+                                <li>Koordinator hari-H</li>
+                                <li>Undangan digital</li>
+                                <li>Souvenir untuk 150 tamu</li>
+                            </ul>
+                            <button class="btn btn-primary btn-order" data-package="Paket B - Classic" data-price="50000000">Pesan Sekarang</button>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card fade-in">
+                        <div class="package-header">
+                            <h3>Paket Custom</h3>
+                            <div class="package-price">Mulai Rp 30.000.000</div>
+                        </div>
+                        <div class="package-body">
+                            <p>Pilih sendiri vendor-vendor sesuai kebutuhan dan budget Anda</p>
+                            <p>Anda dapat memilih dari berbagai vendor berkualitas kami:</p>
+                            <button id="openVendorModal" class="btn btn-outline">Pilih Vendor</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="custom-package-info">
+                    <p>Dengan Paket Custom, Anda memiliki fleksibilitas penuh untuk memilih vendor sesuai preferensi dan budget. Total harga akan dihitung berdasarkan pilihan vendor Anda.</p>
+                    <div id="customPackageSummary" class="selected-vendors" style="display: none;">
+                        <h3>Vendor yang Dipilih:</h3>
+                        <div class="selected-list" id="selectedVendorsList">
+                            <!-- Selected vendors will appear here -->
+                        </div>
+                        <div class="total-price" id="totalPrice">Total: Rp 0</div>
+                        <button class="btn btn-primary btn-order-custom" style="margin-top: 1.5rem;">Pesan Paket Custom</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vendor Showcase Section -->
+    <section id="vendors" class="vendor-showcase">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="animated-text text-slash">Partnership</h2>
+                <p>Kami bekerja sama dengan vendor terbaik untuk mewujudkan pernikahan impian Anda</p>
+            </div>
+            <marquee direction="right">
+                <img src="assets/img/makeup.png" height="25%" width="25%">
+                <img src="assets/img/foto.png" height="25%" width="25%">
+                <img src="assets/img/video.png" height="25%" width="25%">
+                <img src="assets/img/venue.png" height="25%" width="25%">
+                <img src="assets/img/ent.png" height="25%" width="25%">
+                <img src="assets/img/mc.png" height="25%" width="25%">
+                <img src="assets/img/food.png" height="25%" width="25%">
+                <img src="assets/img/wok.png" height="25%" width="25%">
+                <img src="assets/img/cater.png" height="25%" width="25%">
+                <img src="assets/img/upacara.png" height="25%" width="25%">
+                <img src="assets/img/dekor.png" height="25%" width="25%">
+            </marquee>
+        </div>
+    </section>
+
+    <!-- Vendor Selection Modal -->
+    <div class="modal-overlay" id="vendorModal">
+        <div class="vendor-modal">
+            <div class="modal-header">
+                <h2 class="text-slash">Pilih Vendor untuk Paket Custom</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            
+            <div class="modal-categories">
+                <button class="modal-category-btn active" data-category="all">
+                    <div class="vendor-category-icon">
+                        <i class="fas fa-th"></i>
+                    </div>
+                    Semua
+                </button>
+                <button class="modal-category-btn" data-category="mc">
+                    <div class="vendor-category-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    MC
+                </button>
+                <button class="modal-category-btn" data-category="makeup">
+                    <div class="vendor-category-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    Makeup
+                </button>
+                <button class="modal-category-btn" data-category="photo">
+                    <div class="vendor-category-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    Foto & Video
+                </button>
+                <button class="modal-category-btn" data-category="decor">
+                    <div class="vendor-category-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    Dekorasi
+                </button>
+                <button class="modal-category-btn" data-category="entertainment">
+                    <div class="vendor-category-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    Entertainment
+                </button>
+                <button class="modal-category-btn" data-category="custom">
+                    <div class="vendor-category-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    Upacara Adat
+                </button>
+                <button class="modal-category-btn" data-category="content">
+                    <div class="vendor-category-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    Konten Kreator
+                </button>
+                <button class="modal-category-btn" data-category="venue">
+                    <div class="vendor-category-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    Venue
+                </button>
+                <button class="modal-category-btn" data-category="catering">
+                    <div class="vendor-category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    Catering
+                </button>
+                <button class="modal-category-btn" data-category="dessert">
+                    <div class="vendor-category-icon">
+                        <i class="fas fa-ice-cream"></i>
+                    </div>
+                    Dessert
+                </button>
+            </div>
+            
+            <div class="modal-vendor-grid" id="modalVendorGrid">
+                <!-- Vendor cards will be dynamically added here -->
+            </div>
+            
+            <div class="selected-vendors">
+                <h3 class="text-slash">Vendor yang Dipilih:</h3>
+                <div class="selected-list" id="modalSelectedList">
+                    <!-- Selected vendors will appear here -->
+                </div>
+                <div class="total-price" id="modalTotalPrice">Total: Rp 0</div>
+            </div>
+            
+            <div class="modal-actions">
+                <button class="btn btn-outline" id="resetSelection">Reset Pilihan</button>
+                <button class="btn btn-primary" id="saveSelection">Simpan Pilihan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="animated-text text-slash">Testimoni Klien</h2>
+                <p>Pengalaman bahagia dari pasangan yang telah mempercayakan pernikahan mereka kepada kami</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="slider-arrow prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="slider-arrow next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                
+                <div class="testimonial-slides">
+                    <div class="testimonial-slide">
+                        <div class="client-image">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Andi & Sari">
+                        </div>
+                        <p class="testimonial-text">Terima kasih kepada tim Wedding SatuCeritaOrganizer yang telah membuat pernikahan kami menjadi sangat spesial. Semua detail terencana dengan sempurna, dari dekorasi hingga koordinasi di hari-H. Kami benar-benar bisa menikmati hari bahagia kami tanpa khawatir.</p>
+                        <div class="client-name">Andi & Sari</div>
+                        <div class="wedding-date">Pernikahan, 12 Maret 2023</div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="client-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Raka & Dian">
+                        </div>
+                        <p class="testimonial-text">Professional banget timnya! Dari awal konsultasi sampai hari-H semuanya berjalan lancar. Hasil dekorasinya melebihi ekspektasi kami, dan semua tamu terkesan dengan acara yang elegan dan tertata rapi. Highly recommended!</p>
+                        <div class="client-name">Raka & Dian</div>
+                        <div class="wedding-date">Pernikahan, 5 Agustus 2023</div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="client-image">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616c0763205?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Budi & Maya">
+                        </div>
+                        <p class="testimonial-text">Kami memilih paket custom dan bisa memilih vendor sesuai keinginan. Hasilnya sangat memuaskan! Tim WO sangat membantu dalam memberikan rekomendasi vendor terbaik sesuai budget kami. Terima kasih telah mewujudkan pernikahan impian kami!</p>
+                        <div class="client-name">Budi & Maya</div>
+                        <div class="wedding-date">Pernikahan, 20 Oktober 2023</div>
+                    </div>
+                </div>
+                
+                <div class="slider-nav">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="animated-text text-slash">Hubungi Kami</h2>
+                <p>Konsultasikan kebutuhan pernikahan Anda dengan tim profesional kami</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3 class="animated-text text-slash">Informasi Kontak</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Alamat</h4>
+                                <p>Jl. Kemang Raya No. 12, Jakarta Selatan</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Telepon</h4>
+                                <p>(021) 1234-5678</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@satuceritaorganizer.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="animated-text text-slash">Ikuti Kami</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20tentang%20paket%20pernikahan" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Hubungi via WhatsApp
+                    </a>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <h3 class="animated-text text-slash">Form Konsultasi</h3>
+                    <form id="consultation-form">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Nomor Telepon</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="wedding-date">Tanggal Pernikahan (Perkiraan)</label>
+                            <input type="date" id="wedding-date" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">SatuCeritaOrganizer</div>
+                    <p>Mewujudkan pernikahan impian Anda dengan sentuhan elegan dan profesional.</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <h3>Menu</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#profile">Profile</a></li>
+                            <li><a href="#packages">Package</a></li>
+                            <li><a href="#vendors">Vendors</a></li>
+                            <li><a href="#testimonials">Testimoni</a></li>
+                            <li><a href="#contact">Kontak</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Layanan</h3>
+                        <ul>
+                            <li><a href="#packages">Wedding Only</a></li>
+                            <li><a href="#packages">Paket A - Elegant</a></li>
+                            <li><a href="#packages">Paket B - Classic</a></li>
+                            <li><a href="#packages">Paket Custom</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Kontak</h3>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Jakarta Selatan</li>
+                            <li><i class="fas fa-phone"></i> (021) 1234-5678</li>
+                            <li><i class="fas fa-envelope"></i> info@satuceritaorganizer.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Wedding SatuCeritaOrganizer. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Vendor Data (without prices displayed to users)
+        const vendorData = [
+            // Master of Ceremony
+            { id: 46, name: "Riny Lusiana", category: "mc", price: 3000000, image: "assets/img/riny.jpg", description: "MC berpengalaman untuk memandu acara pernikahan" },
+            { id: 47, name: "Rizaludin Azmi", category: "mc", price: 4500000, image: "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "MC dengan gaya interaktif dan menghibur" },
+            { id: 48, name: "Iman Nugraha", category: "mc", price: 6000000, image: "https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "MC yang fasih berbahasa Indonesia dan Inggris" },
+            
+            // Makeup
+            { id: 1, name: "Ai make up", category: "makeup", price: 5000000, image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional dengan pengalaman 8 tahun" },
+            { id: 2, name: "Aisyah Raini", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
+            { id: 3, name: "By Usi Make up", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
+            { id: 4, name: "Andini Martha", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
+            { id: 5, name: "Nourma Lathifah", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
+            { id: 6, name: "Sinta Ho", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
+            { id: 7, name: "Tyna Rahim", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
+            { id: 8, name: "Rose Mini Make up", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
+            { id: 9, name: "Mayang Ks", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
+            { id: 10, name: "She Make Up", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
+            { id: 11, name: "Gina Fauzir", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
+            
+            // Foto & Videografi
+            { id: 12, name: "Rayiraka Picture", category: "photo", price: 8000000, image: "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Fotografer dan videografer profesional dengan peralatan lengkap" },
+            { id: 13, name: "Cerita Kita Abadi", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
+            { id: 14, name: "Sararay Joyful Image", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
+            { id: 15, name: "Rizal Photograph", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
+            { id: 16, name: "Tapak Jejak", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
+            { id: 17, name: "Kemarin Sore", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
+            { id: 18, name: "Zero Pictura", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
+            { id: 19, name: "Maxlomo Story", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
+            
+            // Dekorasi
+            { id: 20, name: "Awside Decoration", category: "decor", price: 15000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis dekorasi pernikahan dengan konsep elegan" },
+            { id: 21, name: "Dais Decoration", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
+            { id: 22, name: "Raditya Dekorasi", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
+            { id: 23, name: "Piimow", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
+            { id: 24, name: "Depang Sunardi", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
+            { id: 25, name: "Azzara Wedding", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
+            { id: 26, name: "Peonies Dream", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
+            { id: 27, name: "Razfatih Decoration", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
+            { id: 28, name: "Wood Queen", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
+            
+            // Entertainment
+            { id: 29, name: "Blue Monday", category: "entertainment", price: 7000000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Live band dengan repertoire lagu-lagu romantis" },
+            { id: 30, name: "Ritme Music", category: "entertainment", price: 7000000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Live band dengan repertoire lagu-lagu romantis" },
+            { id: 31, name: "Symponi Music", category: "entertainment", price: 7000000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Live band dengan repertoire lagu-lagu romantis" },
+            
+            // Upacara Adat
+            { id: 32, name: "Sanggar Seni Dewi Sukma", category: "custom", price: 10000000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Paket lengkap upacara adat Jawa dengan sesepuh" },
+            { id: 33, name: "Astagiri", category: "custom", price: 8500000, image: "https://images.unsplash.com/photo-1587502537104-aac10ef65a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Pelaksanaan upacara adat Sunda yang autentik" },
+            { id: 34, name: "Giri Marga", category: "custom", price: 8500000, image: "https://images.unsplash.com/photo-1587502537104-aac10ef65a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Pelaksanaan upacara adat Sunda yang autentik" },
+            { id: 35, name: "GWS Pro", category: "custom", price: 8500000, image: "https://images.unsplash.com/photo-1587502537104-aac10ef65a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Pelaksanaan upacara adat Sunda yang autentik" },
+            { id: 36, name: "Gupay Mitra", category: "custom", price: 8500000, image: "https://images.unsplash.com/photo-1587502537104-aac10ef65a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Pelaksanaan upacara adat Sunda yang autentik" },
+
+            // WO Konten Kreator
+            { id: 37, name: "Svara Cinta Wedding Content Creator", category: "content", price: 5000000, image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Konten kreator untuk dokumentasi pernikahan yang menarik" },
+            
+            // Venue
+            { id: 38, name: "De Jehan Hotel", category: "venue", price: 25000000, image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Venue mewah dengan kapasitas hingga 500 tamu" },
+            { id: 39, name: "Santika Hotel", category: "venue", price: 18000000, image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Taman outdoor dengan suasana romantis dan natural" },
+            { id: 40, name: "Grand Cordela Hotel", category: "venue", price: 18000000, image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Taman outdoor dengan suasana romantis dan natural" },
+            { id: 41, name: "Grage Hotel", category: "venue", price: 18000000, image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Taman outdoor dengan suasana romantis dan natural" },
+            
+            // Catering
+            { id: 42, name: "Alma Catering", category: "catering", price: 35000000, image: "https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Katering premium dengan menu internasional untuk 200 tamu" },
+            { id: 43, name: "Aditya Catering", category: "catering", price: 25000000, image: "https://images.unsplash.com/photo-1559314809-0f1556aae6aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Menu tradisional Indonesia dengan cita rasa autentik" },
+            
+            // Dessert & Foodcourt
+            { id: 44, name: "Znj Dessert", category: "dessert", price: 8000000, image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dessert table dengan berbagai pilihan kue dan pastry" },
+            { id: 45, name: "Otaku Coffe", category: "dessert", price: 12000000, image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Berbagai stan makanan untuk pengalaman kuliner yang beragam" }
+        ];
+
+        // Selected vendors array
+        let selectedVendors = [];
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+                document.querySelector('.mobile-menu i').classList.add('fa-bars');
+                document.querySelector('.mobile-menu i').classList.remove('fa-times');
+            });
+        });
+
+        // Sticky Navbar
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                header.style.padding = '0.5rem 0';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                header.style.padding = '1.2rem 0';
+            }
+        });
+
+        // Package Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Crew Slider
+        const crewSlider = document.querySelector('.crew-slider');
+        const crewCards = document.querySelectorAll('.crew-card');
+        const crewDots = document.querySelectorAll('.crew-slider-container .slider-dot');
+        const crewPrevBtn = document.querySelector('.crew-slider-container .slider-arrow.prev');
+        const crewNextBtn = document.querySelector('.crew-slider-container .slider-arrow.next');
+        let currentCrewSlide = 0;
+
+        function showCrewSlide(n) {
+            if (n < 0) {
+                currentCrewSlide = crewCards.length - 1;
+            } else if (n >= crewCards.length) {
+                currentCrewSlide = 0;
+            } else {
+                currentCrewSlide = n;
+            }
+            
+            // Update active card
+            crewCards.forEach(card => card.classList.remove('active'));
+            crewCards[currentCrewSlide].classList.add('active');
+            
+            // Update dots
+            crewDots.forEach(dot => dot.classList.remove('active'));
+            crewDots[currentCrewSlide].classList.add('active');
+        }
+
+        // Next slide
+        crewNextBtn.addEventListener('click', () => {
+            showCrewSlide(currentCrewSlide + 1);
+        });
+
+        // Previous slide
+        crewPrevBtn.addEventListener('click', () => {
+            showCrewSlide(currentCrewSlide - 1);
+        });
+
+        // Dot click events
+        crewDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showCrewSlide(index);
+            });
+        });
+
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            showCrewSlide(currentCrewSlide + 1);
+        }, 5000);
+
+        // Testimonial Slider
+        const slides = document.querySelector('.testimonial-slides');
+        const dots = document.querySelectorAll('.testimonial-slider .slider-dot');
+        const prevBtn = document.querySelector('.testimonial-slider .slider-arrow.prev');
+        const nextBtn = document.querySelector('.testimonial-slider .slider-arrow.next');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            if (n < 0) {
+                currentSlide = dots.length - 1;
+            } else if (n >= dots.length) {
+                currentSlide = 0;
+            } else {
+                currentSlide = n;
+            }
+            
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+
+       
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+
+       
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+
+     
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+
+        
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        function checkScroll() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+
+        
+        document.getElementById('consultation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah berhasil dikirim. Tim kami akan segera menghubungi Anda.');
+            this.reset();
+        });
+
+        
+        const vendorModal = document.getElementById('vendorModal');
+        const openModalBtn = document.getElementById('openVendorModal');
+        const closeModalBtn = document.querySelector('.close-modal');
+        const modalVendorGrid = document.getElementById('modalVendorGrid');
+        const modalCategoryBtns = document.querySelectorAll('.modal-category-btn');
+        const modalSelectedList = document.getElementById('modalSelectedList');
+        const modalTotalPrice = document.getElementById('modalTotalPrice');
+        const resetSelectionBtn = document.getElementById('resetSelection');
+        const saveSelectionBtn = document.getElementById('saveSelection');
+        const customPackageSummary = document.getElementById('customPackageSummary');
+        const selectedVendorsList = document.getElementById('selectedVendorsList');
+        const totalPrice = document.getElementById('totalPrice');
+
+     
+        openModalBtn.addEventListener('click', () => {
+            vendorModal.classList.add('active');
+            renderVendorGrid('all');
+            updateModalSelection();
+        });
+
+      
+        closeModalBtn.addEventListener('click', () => {
+            vendorModal.classList.remove('active');
+        });
+
+       
+        vendorModal.addEventListener('click', (e) => {
+            if (e.target === vendorModal) {
+                vendorModal.classList.remove('active');
+            }
+        });
+
+      
+        modalCategoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                modalCategoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const category = btn.getAttribute('data-category');
+                renderVendorGrid(category);
+            });
+        });
+
+       
+        function renderVendorGrid(category) {
+            modalVendorGrid.innerHTML = '';
+            
+            const filteredVendors = category === 'all' 
+                ? vendorData 
+                : vendorData.filter(vendor => vendor.category === category);
+            
+            filteredVendors.forEach(vendor => {
+                const isSelected = selectedVendors.some(v => v.id === vendor.id);
+                
+                const vendorCard = document.createElement('div');
+                vendorCard.className = `modal-vendor-card ${isSelected ? 'selected' : ''}`;
+                vendorCard.setAttribute('data-id', vendor.id);
+                vendorCard.innerHTML = `
+                
+                    <div class="modal-vendor-image">
+                        <img src="${vendor.image}" alt="${vendor.name}">
+                    </div>
+                    <div class="modal-vendor-info">
+                        <h4>${vendor.name}</h4>
+                        <p>${vendor.description}</p>
+                    </div>
+                `;
+                
+                vendorCard.addEventListener('click', () => {
+                    toggleVendorSelection(vendor);
+                });
+                
+                modalVendorGrid.appendChild(vendorCard);
+            });
+        }
+
+        
+        function toggleVendorSelection(vendor) {
+            
+            const existingVendorIndex = selectedVendors.findIndex(v => v.category === vendor.category);
+            
+            if (existingVendorIndex !== -1) {
+              
+                selectedVendors.splice(existingVendorIndex, 1);
+            }
+            
+           
+            const index = selectedVendors.findIndex(v => v.id === vendor.id);
+            
+            if (index === -1) {
+               
+                selectedVendors.push(vendor);
+            } else {
+                
+                selectedVendors.splice(index, 1);
+            }
+            
+            updateModalSelection();
+            renderVendorGrid(document.querySelector('.modal-category-btn.active').getAttribute('data-category'));
+        }
+
+        // Update modal selection display
+        function updateModalSelection() {
+            modalSelectedList.innerHTML = '';
+            let total = 0;
+            
+            selectedVendors.forEach(vendor => {
+                total += vendor.price;
+                
+                const selectedItem = document.createElement('div');
+                selectedItem.className = 'selected-item';
+                selectedItem.innerHTML = `
+                    ${vendor.name} (${vendor.category})
+                    <button class="remove-vendor" data-id="${vendor.id}">&times;</button>
+                `;
+                
+                selectedItem.querySelector('.remove-vendor').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleVendorSelection(vendor);
+                });
+                
+                modalSelectedList.appendChild(selectedItem);
+            });
+            
+            modalTotalPrice.textContent = `Total: Rp ${total.toLocaleString('id-ID')}`;
+        }
+
+        // Reset selection
+        resetSelectionBtn.addEventListener('click', () => {
+            selectedVendors = [];
+            updateModalSelection();
+            renderVendorGrid(document.querySelector('.modal-category-btn.active').getAttribute('data-category'));
+        });
+
+        // Save selection
+        saveSelectionBtn.addEventListener('click', () => {
+            vendorModal.classList.remove('active');
+            updatePackageSummary();
+        });
+
+     
+        function updatePackageSummary() {
+            if (selectedVendors.length > 0) {
+                customPackageSummary.style.display = 'block';
+                selectedVendorsList.innerHTML = '';
+                let total = 0;
+                
+                selectedVendors.forEach(vendor => {
+                    total += vendor.price;
+                    
+                    const vendorItem = document.createElement('div');
+                    vendorItem.className = 'selected-item';
+                    vendorItem.innerHTML = `
+                        ${vendor.name} (${vendor.category})
+                    `;
+                    selectedVendorsList.appendChild(vendorItem);
+                });
+                
+                totalPrice.textContent = `Total: Rp ${total.toLocaleString('id-ID')}`;
+            } else {
+                customPackageSummary.style.display = 'none';
+            }
+        }
+
+        
+        const animatedTexts = document.querySelectorAll('.animated-text');
+        
+        animatedTexts.forEach(text => {
+            text.addEventListener('mouseenter', () => {
+                text.style.transform = 'scale(1.05)';
+                text.style.transition = 'transform 0.3s ease';
+            });
+            
+            text.addEventListener('mouseleave', () => {
+                text.style.transform = 'scale(1)';
+            });
+        });
+
+       
+        document.querySelectorAll('.btn-order').forEach(button => {
+            button.addEventListener('click', function() {
+                const packageName = this.getAttribute('data-package');
+                const packagePrice = this.getAttribute('data-price');
+                
+              
+                const message = `Halo, saya tertarik dengan ${packageName} seharga Rp ${parseInt(packagePrice).toLocaleString('id-ID')}. Bisakah saya mendapatkan informasi lebih lanjut?`;
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappUrl = `https://wa.me/6281234567890?text=${encodedMessage}`;
+                
+              
+                window.open(whatsappUrl, '_blank');
+            });
+        });
+
+        document.querySelector('.btn-order-custom').addEventListener('click', function() {
+            if (selectedVendors.length === 0) {
+                alert('Silakan pilih vendor terlebih dahulu untuk paket custom.');
+                return;
+            }
+            
+            let total = 0;
+            let vendorList = '';
+            
+            selectedVendors.forEach(vendor => {
+                total += vendor.price;
+                vendorList += `- ${vendor.name} (${vendor.category})\n`;
+            });
+            
+            const message = `Halo, saya tertarik dengan Paket Custom dengan vendor berikut:\n${vendorList}\nTotal: Rp ${total.toLocaleString('id-ID')}\n\nBisakah saya mendapatkan informasi lebih lanjut?`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/6281234567890?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        });
+
+   
+        renderVendorGrid('all');
+    </script>
+</body>
+</html>
