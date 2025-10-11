@@ -1,47 +1,97 @@
-// Vendor Data (without prices displayed to users)
-        const vendorData = [
-            // Makeup
-            { id: 1, name: "Beauty by Amanda", category: "makeup", price: 5000000, image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional dengan pengalaman 8 tahun" },
-            { id: 2, name: "Glamour Studio", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
-            
-            // Foto & Videografi
-            { id: 3, name: "Memory Captured", category: "photo", price: 8000000, image: "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Fotografer dan videografer profesional dengan peralatan lengkap" },
-            { id: 4, name: "Visual Story", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
-            
-            // Dekorasi
-            { id: 5, name: "Elegant Decor", category: "decor", price: 15000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis dekorasi pernikahan dengan konsep elegan" },
-            { id: 6, name: "Floral Dreams", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
-            
-            // Entertainment
-            { id: 7, name: "Harmony Band", category: "entertainment", price: 7000000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Live band dengan repertoire lagu-lagu romantis" },
-            { id: 8, name: "MC Professional", category: "entertainment", price: 3000000, image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "MC berpengalaman untuk memandu acara pernikahan" },
-            
-            // Upacara Adat
-            { id: 9, name: "Adat Jawa", category: "custom", price: 10000000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Paket lengkap upacara adat Jawa dengan sesepuh" },
-            { id: 10, name: "Adat Sunda", category: "custom", price: 8500000, image: "https://images.unsplash.com/photo-1587502537104-aac10ef65a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Pelaksanaan upacara adat Sunda yang autentik" },
-            
-            // WO Konten Kreator
-            { id: 11, name: "Content Studio", category: "content", price: 5000000, image: "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Pembuatan konten kreatif untuk media sosial pernikahan" },
-            
-            // Venue
-            { id: 12, name: "Grand Ballroom", category: "venue", price: 25000000, image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Venue mewah dengan kapasitas hingga 500 tamu" },
-            { id: 13, name: "Garden Venue", category: "venue", price: 18000000, image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Taman outdoor dengan suasana romantis dan natural" },
-            
-            // Catering
-            { id: 14, name: "Royal Catering", category: "catering", price: 35000000, image: "https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Katering premium dengan menu internasional untuk 200 tamu" },
-            { id: 15, name: "Traditional Taste", category: "catering", price: 25000000, image: "https://images.unsplash.com/photo-1559314809-0f1556aae6aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Menu tradisional Indonesia dengan cita rasa autentik" },
-            
-            // Dessert & Foodcourt
-            { id: 16, name: "Sweet Delights", category: "dessert", price: 8000000, image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dessert table dengan berbagai pilihan kue dan pastry" },
-            { id: 17, name: "Foodcourt Variety", category: "dessert", price: 12000000, image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Berbagai stan makanan untuk pengalaman kuliner yang beragam" },
-          
-            // MC
-             { id: 18, name: "Sweet Delights", category: "mc", price: 8000000, image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dessert table dengan berbagai pilihan kue dan pastry" },
-            { id: 19, name: "Foodcourt Variety", category: "mc", price: 12000000, image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Berbagai stan makanan untuk pengalaman kuliner yang beragam" }
-        ];
+   // Vendor Data
+const vendorData = [
+    // Master of Ceremony
+    { id: 46, name: "Riny Lusiana", category: "mc", price: 700000, image: "assets/img/riny.jpg", description: "MC berpengalaman untuk memandu acara pernikahan" },
+    { id: 47, name: "Rizaludin Azmi", category: "mc", price: 700000, image: "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "MC dengan gaya interaktif dan menghibur" },
+    { id: 48, name: "Iman Nugraha", category: "mc", price: 1350000, image: "https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "MC yang fasih berbahasa Indonesia dan Inggris" },
+
+    // Makeup
+    { id: 1, name: "Ai make up", category: "makeup", price: 10000000, image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional dengan pengalaman 8 tahun" },
+    { id: 2, name: "Aisyah Raini", category: "makeup", price: 7500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
+    { id: 11, name: "Gina Fauzir", category: "makeup", price: 8000000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist premium dengan pengalaman 10+ tahun" },
+    { id: 45, name: "Nourma Latifah", category: "makeup", price: 7500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist premium dengan pengalaman 10+ tahun" },
+    { id: 49, name: "She makeup", category: "makeup", price: 8000000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist premium dengan pengalaman 10+ tahun" },
+    { id: 54, name: "Shinta HO", category: "makeup", price: 7000000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional untuk hari spesial Anda" },
+    { id: 55, name: "Mayang KS", category: "makeup", price: 8000000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional untuk hari spesial Anda" },
+    { id: 56, name: "Rosemini Makeup", category: "makeup", price: 7500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional untuk hari spesial Anda" },
+    { id: 57, name: "Tyna Rahim", category: "makeup", price: 7500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional untuk hari spesial Anda" },
+
+    // Foto & Videografi
+    { id: 12, name: "Rayiraka Picture", category: "photo", price: 3000000, image: "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Fotografer dan videografer profesional dengan peralatan lengkap" },
+    { id: 13, name: "Kemarin Sore", category: "photo", price: 6500000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
+    { id: 50, name: "Cerita Kita Abadi", category: "photo", price: 2700000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
+    { id: 51, name: "Sararay", category: "photo", price: 6300000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
+    { id: 52, name: "Maxlomo", category: "photo", price: 3800000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
+    { id: 53, name: "Zero pictura", category: "photo", price: 5000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
+    { id: 58, name: "Rizal Photograpy", category: "photo", price: 5000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Fotografer profesional dengan hasil memukau" },
+
+    // Dekorasi
+    { id: 20, name: "Awside Decoration", category: "decor", price: 15000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis dekorasi pernikahan dengan konsep elegan" },
+    { id: 21, name: "Dais Decoration", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
+    { id: 59, name: "Cantika Dekorasi", category: "decor", price: 6500000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" },
+    { id: 60, name: "Piimow", category: "decor", price: 6000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" },
+    { id: 61, name: "Razfatih", category: "decor", price: 6000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" },
+    { id: 62, name: "Woodqueen", category: "decor", price: 6500000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" },
+    { id: 63, name: "Raditya dekorasi", category: "decor", price: 10000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" },
+
+    // Entertainment
+    { id: 29, name: "Blue Monday", category: "entertainment", price: 8000000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Live band dengan repertoire lagu-lagu romantis" },
+    { id: 64, name: "Symphony", category: "entertainment", price: 12000000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Orkestra atau live music premium untuk pernikahan" },
+    { id: 65, name: "Ritme music", category: "entertainment", price: 4750000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Live music akustik atau band dengan harga terjangkau" },
+
+    // Upacara Adat
+    { id: 32, name: "Sanggar Seni Dewi Sukma", category: "custom", price: 10000000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Paket lengkap upacara adat Jawa dengan sesepuh" },
+    { id: 66, name: "Gupay mitra", category: "custom", price: 4000000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis layanan upacara adat" },
+    { id: 67, name: "Astagiri", category: "custom", price: 4000000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis layanan upacara adat" },
+    { id: 68, name: "Giri marga", category: "custom", price: 3500000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis layanan upacara adat" },
+    { id: 69, name: "Jws pro", category: "custom", price: 3800000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis layanan upacara adat" },
+
+    // WO Konten Kreator
+    { id: 37, name: "Svara Cinta Wedding Content Creator", category: "content", price: 5000000, image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Konten kreator untuk dokumentasi pernikahan yang menarik" },
+    { id: 70, name: "Svara cinta", category: "content", price: 350000, image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Konten kreator untuk dokumentasi pernikahan yang menarik" },
+
+    // Venue
+    { id: 38, name: "De Jehan Hotel", category: "venue", price: 25000000, image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Venue mewah dengan kapasitas hingga 500 tamu" },
+    { id: 39, name: "Santika Hotel", category: "venue", price: 18000000, image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Taman outdoor dengan suasana romantis dan natural" },
+
+    // Catering
+    { id: 42, name: "Alma Catering", category: "catering", price: 35000000, image: "https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Katering premium dengan menu internasional untuk 200 tamu" },
+    { id: 71, name: "Aditya catering", category: "catering", price: 33000, image: "https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Paket mawar (33rb/pack)" },
+    { id: 72, name: "Alma catering (Prasmanan)", category: "catering", price: 38000, image: "https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Prasmanan (38rb/pack)" },
+
+    // Dessert & Foodcourt
+    { id: 44, name: "Znj Dessert", category: "dessert", price: 8000000, image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dessert table dengan berbagai pilihan kue dan pastry" }
+    ];
 
         // Selected vendors array
         let selectedVendors = [];
+
+        // Create particles for hero section
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 5 + 2;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 10;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
 
         // Mobile Menu Toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
@@ -90,120 +140,155 @@
             });
         });
 
-        // Testimonial Slider
-        const slides = document.querySelector('.testimonial-slides');
-        const dots = document.querySelectorAll('.slider-dot');
-        const prevBtn = document.querySelector('.slider-arrow.prev');
-        const nextBtn = document.querySelector('.slider-arrow.next');
-        let currentSlide = 0;
+        // Crew Slider
+        const crewSlider = document.querySelector('.crew-slider');
+        const crewCards = document.querySelectorAll('.crew-card');
+        const crewDots = document.querySelectorAll('.crew-slider-container .slider-dot');
+        const crewPrevBtn = document.querySelector('.crew-slider-container .slider-arrow.prev');
+        const crewNextBtn = document.querySelector('.crew-slider-container .slider-arrow.next');
+        let currentCrewSlide = 0;
+        const crewSlideWidth = crewCards[0].offsetWidth + 32; // card width + margin
 
-        function showSlide(n) {
-            if (n < 0) {
-                currentSlide = dots.length - 1;
-            } else if (n >= dots.length) {
-                currentSlide = 0;
+                function showCrewSlide(index) {
+            if (index < 0) {
+                currentCrewSlide = crewCards.length - 1;
+            } else if (index >= crewCards.length) {
+                currentCrewSlide = 0;
             } else {
-                currentSlide = n;
+                currentCrewSlide = index;
             }
             
-            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            const offset = -currentCrewSlide * crewSlideWidth;
+            crewSlider.style.transform = `translateX(${offset}px)`;
             
             // Update dots
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[currentSlide].classList.add('active');
+            crewDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentCrewSlide);
+            });
         }
 
-        // Next slide
-        nextBtn.addEventListener('click', () => {
-            showSlide(currentSlide + 1);
+        crewPrevBtn.addEventListener('click', () => {
+            showCrewSlide(currentCrewSlide - 1);
         });
 
-        // Previous slide
-        prevBtn.addEventListener('click', () => {
-            showSlide(currentSlide - 1);
+        crewNextBtn.addEventListener('click', () => {
+            showCrewSlide(currentCrewSlide + 1);
         });
 
-        // Dot click events
-        dots.forEach((dot, index) => {
+        crewDots.forEach((dot, i) => {
             dot.addEventListener('click', () => {
-                showSlide(index);
+                showCrewSlide(i);
             });
         });
 
-        // Auto slide every 5 seconds
-        setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 5000);
+        // Collaboration Slider
+        const collaborationSlides = document.querySelector('.collaboration-slides');
+        const collaborationSlideItems = document.querySelectorAll('.collaboration-slide');
+        const collaborationDots = document.querySelectorAll('.collaboration-slider-dot');
+        const collaborationPrevBtn = document.querySelector('.collaboration-slider-arrow.prev');
+        const collaborationNextBtn = document.querySelector('.collaboration-slider-arrow.next');
+        let currentCollaborationSlide = 0;
 
-        // Scroll Animation
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        function checkScroll() {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('visible');
-                }
+        function showCollaborationSlide(index) {
+            if (index < 0) {
+                currentCollaborationSlide = collaborationSlideItems.length - 1;
+            } else if (index >= collaborationSlideItems.length) {
+                currentCollaborationSlide = 0;
+            } else {
+                currentCollaborationSlide = index;
+            }
+            
+            const offset = -currentCollaborationSlide * 100;
+            collaborationSlides.style.transform = `translateX(${offset}%)`;
+            
+            // Update dots
+            collaborationDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentCollaborationSlide);
             });
         }
-        
-        window.addEventListener('scroll', checkScroll);
-        window.addEventListener('load', checkScroll);
 
-        // Form Submission
-        document.getElementById('consultation-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Terima kasih! Pesan Anda telah berhasil dikirim. Tim kami akan segera menghubungi Anda.');
-            this.reset();
+        collaborationPrevBtn.addEventListener('click', () => {
+            showCollaborationSlide(currentCollaborationSlide - 1);
         });
+
+        collaborationNextBtn.addEventListener('click', () => {
+            showCollaborationSlide(currentCollaborationSlide + 1);
+        });
+
+        collaborationDots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                showCollaborationSlide(i);
+            });
+        });
+
+        // Testimonial Slider
+        const testimonialSlides = document.querySelector('.testimonial-slides');
+        const testimonialSlideItems = document.querySelectorAll('.testimonial-slide');
+        const testimonialDots = document.querySelectorAll('.testimonials .slider-dot');
+        const testimonialPrevBtn = document.querySelector('.testimonials .slider-arrow.prev');
+        const testimonialNextBtn = document.querySelector('.testimonials .slider-arrow.next');
+        let currentTestimonialSlide = 0;
+
+        function showTestimonialSlide(index) {
+            if (index < 0) {
+                currentTestimonialSlide = testimonialSlideItems.length - 1;
+            } else if (index >= testimonialSlideItems.length) {
+                currentTestimonialSlide = 0;
+            } else {
+                currentTestimonialSlide = index;
+            }
+            
+            const offset = -currentTestimonialSlide * 100;
+            testimonialSlides.style.transform = `translateX(${offset}%)`;
+            
+            // Update dots
+            testimonialDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentTestimonialSlide);
+            });
+        }
+
+        testimonialPrevBtn.addEventListener('click', () => {
+            showTestimonialSlide(currentTestimonialSlide - 1);
+        });
+
+        testimonialNextBtn.addEventListener('click', () => {
+            showTestimonialSlide(currentTestimonialSlide + 1);
+        });
+
+        testimonialDots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                showTestimonialSlide(i);
+            });
+        });
+
+        // Auto slide for collaboration and testimonial sliders
+        setInterval(() => {
+            showCollaborationSlide(currentCollaborationSlide + 1);
+            showTestimonialSlide(currentTestimonialSlide + 1);
+        }, 5000);
 
         // Vendor Modal Functionality
         const vendorModal = document.getElementById('vendorModal');
-        const openModalBtn = document.getElementById('openVendorModal');
-        const closeModalBtn = document.querySelector('.close-modal');
+        const openVendorModalBtn = document.getElementById('openVendorModal');
+        const closeVendorModalBtn = document.querySelector('.close-modal');
         const modalVendorGrid = document.getElementById('modalVendorGrid');
-        const modalCategoryBtns = document.querySelectorAll('.modal-category-btn');
         const modalSelectedList = document.getElementById('modalSelectedList');
         const modalTotalPrice = document.getElementById('modalTotalPrice');
         const resetSelectionBtn = document.getElementById('resetSelection');
         const saveSelectionBtn = document.getElementById('saveSelection');
-        const customPackageSummary = document.getElementById('customPackageSummary');
-        const selectedVendorsList = document.getElementById('selectedVendorsList');
-        const totalPrice = document.getElementById('totalPrice');
+        const categoryBtns = document.querySelectorAll('.modal-category-btn');
 
-        // Open modal
-        openModalBtn.addEventListener('click', () => {
-            vendorModal.classList.add('active');
-            renderVendorGrid('all');
-            updateModalSelection();
-        });
+        // Format currency
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0
+            }).format(amount);
+        }
 
-        // Close modal
-        closeModalBtn.addEventListener('click', () => {
-            vendorModal.classList.remove('active');
-        });
-
-        // Close modal when clicking outside
-        vendorModal.addEventListener('click', (e) => {
-            if (e.target === vendorModal) {
-                vendorModal.classList.remove('active');
-            }
-        });
-
-        // Modal category filtering
-        modalCategoryBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                modalCategoryBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const category = btn.getAttribute('data-category');
-                renderVendorGrid(category);
-            });
-        });
-
-        // Render vendor grid in modal
-        function renderVendorGrid(category) {
+        // Render vendor cards
+        function renderVendorCards(category = 'all') {
             modalVendorGrid.innerHTML = '';
             
             const filteredVendors = category === 'all' 
@@ -216,6 +301,7 @@
                 const vendorCard = document.createElement('div');
                 vendorCard.className = `modal-vendor-card ${isSelected ? 'selected' : ''}`;
                 vendorCard.setAttribute('data-id', vendor.id);
+                
                 vendorCard.innerHTML = `
                     <div class="modal-vendor-image">
                         <img src="${vendor.image}" alt="${vendor.name}">
@@ -236,23 +322,31 @@
 
         // Toggle vendor selection
         function toggleVendorSelection(vendor) {
-            const index = selectedVendors.findIndex(v => v.id === vendor.id);
+            const existingIndex = selectedVendors.findIndex(v => v.id === vendor.id);
             
-            if (index === -1) {
-                // Add vendor to selection
-                selectedVendors.push(vendor);
+            if (existingIndex > -1) {
+                // Remove vendor if already selected
+                selectedVendors.splice(existingIndex, 1);
             } else {
-                // Remove vendor from selection
-                selectedVendors.splice(index, 1);
+                // Add vendor if not selected
+                selectedVendors.push(vendor);
             }
             
-            updateModalSelection();
-            renderVendorGrid(document.querySelector('.modal-category-btn.active').getAttribute('data-category'));
+            updateSelectedVendorsDisplay();
+            renderVendorCards(getCurrentCategory());
         }
 
-        // Update modal selection display
-        function updateModalSelection() {
+        // Get current selected category
+        function getCurrentCategory() {
+            const activeCategoryBtn = document.querySelector('.modal-category-btn.active');
+            return activeCategoryBtn ? activeCategoryBtn.getAttribute('data-category') : 'all';
+        }
+
+        // Update selected vendors display
+        function updateSelectedVendorsDisplay() {
+            // Update modal display
             modalSelectedList.innerHTML = '';
+            
             let total = 0;
             
             selectedVendors.forEach(vendor => {
@@ -265,80 +359,96 @@
                     <button class="remove-vendor" data-id="${vendor.id}">&times;</button>
                 `;
                 
-                selectedItem.querySelector('.remove-vendor').addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    toggleVendorSelection(vendor);
-                });
-                
                 modalSelectedList.appendChild(selectedItem);
             });
             
-            modalTotalPrice.textContent = `Total: Rp ${total.toLocaleString('id-ID')}`;
-        }
-
-        // Reset selection
-        resetSelectionBtn.addEventListener('click', () => {
-            selectedVendors = [];
-            updateModalSelection();
-            renderVendorGrid(document.querySelector('.modal-category-btn.active').getAttribute('data-category'));
-        });
-
-        // Save selection
-        saveSelectionBtn.addEventListener('click', () => {
-            vendorModal.classList.remove('active');
-            updatePackageSummary();
-        });
-
-        // Update package summary on main page
-        function updatePackageSummary() {
+            modalTotalPrice.textContent = `Total: ${formatCurrency(total)}`;
+            
+            // Update package section display
+            const customPackageSummary = document.getElementById('customPackageSummary');
+            const selectedVendorsList = document.getElementById('selectedVendorsList');
+            const totalPrice = document.getElementById('totalPrice');
+            
             if (selectedVendors.length > 0) {
                 customPackageSummary.style.display = 'block';
                 selectedVendorsList.innerHTML = '';
-                let total = 0;
                 
                 selectedVendors.forEach(vendor => {
-                    total += vendor.price;
-                    
                     const vendorItem = document.createElement('div');
                     vendorItem.className = 'selected-item';
                     vendorItem.innerHTML = `
-                        ${vendor.name}
+                        ${vendor.name} - ${formatCurrency(vendor.price)}
                     `;
                     selectedVendorsList.appendChild(vendorItem);
                 });
                 
-                totalPrice.textContent = `Total: Rp ${total.toLocaleString('id-ID')}`;
+                totalPrice.textContent = `Total: ${formatCurrency(total)}`;
             } else {
                 customPackageSummary.style.display = 'none';
             }
         }
 
-        // Text animation on hover
-        const animatedTexts = document.querySelectorAll('.animated-text');
-        
-        animatedTexts.forEach(text => {
-            text.addEventListener('mouseenter', () => {
-                text.style.transform = 'scale(1.05)';
-                text.style.transition = 'transform 0.3s ease';
-            });
-            
-            text.addEventListener('mouseleave', () => {
-                text.style.transform = 'scale(1)';
+        // Category filter
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderVendorCards(btn.getAttribute('data-category'));
             });
         });
 
-        // Order buttons functionality
-        document.querySelectorAll('.btn-order').forEach(button => {
-            button.addEventListener('click', function() {
+        // Remove vendor from selection
+        modalSelectedList.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-vendor')) {
+                const vendorId = parseInt(e.target.getAttribute('data-id'));
+                selectedVendors = selectedVendors.filter(v => v.id !== vendorId);
+                updateSelectedVendorsDisplay();
+                renderVendorCards(getCurrentCategory());
+            }
+        });
+
+        // Reset selection
+        resetSelectionBtn.addEventListener('click', () => {
+            selectedVendors = [];
+            updateSelectedVendorsDisplay();
+            renderVendorCards(getCurrentCategory());
+        });
+
+        // Save selection
+        saveSelectionBtn.addEventListener('click', () => {
+            vendorModal.classList.remove('active');
+            // Show success message
+            alert('Pilihan vendor telah disimpan! Total paket custom: ' + modalTotalPrice.textContent);
+        });
+
+        // Open modal
+        openVendorModalBtn.addEventListener('click', () => {
+            vendorModal.classList.add('active');
+            renderVendorCards();
+            updateSelectedVendorsDisplay();
+        });
+
+        // Close modal
+        closeVendorModalBtn.addEventListener('click', () => {
+            vendorModal.classList.remove('active');
+        });
+
+        // Close modal when clicking outside
+        vendorModal.addEventListener('click', (e) => {
+            if (e.target === vendorModal) {
+                vendorModal.classList.remove('active');
+            }
+        });
+
+        // Order buttons
+        document.querySelectorAll('.btn-order').forEach(btn => {
+            btn.addEventListener('click', function() {
                 const packageName = this.getAttribute('data-package');
                 const packagePrice = this.getAttribute('data-price');
                 
-                // Format WhatsApp message
-                const message = `Halo, saya tertarik dengan ${packageName} seharga Rp ${parseInt(packagePrice).toLocaleString('id-ID')}. Bisakah saya mendapatkan informasi lebih lanjut?`;
-                const encodedMessage = encodeURIComponent(message);
-                const whatsappUrl = `https://wa.me/6281234567890?text=${encodedMessage}`;
+                const message = `Halo, saya tertarik dengan ${packageName} seharga ${formatCurrency(parseInt(packagePrice))}. Bisakah saya mendapatkan informasi lebih lanjut?`;
+                const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(message)}`;
                 
-                // Open WhatsApp
                 window.open(whatsappUrl, '_blank');
             });
         });
@@ -346,26 +456,96 @@
         // Custom package order button
         document.querySelector('.btn-order-custom').addEventListener('click', function() {
             if (selectedVendors.length === 0) {
-                alert('Silakan pilih vendor terlebih dahulu untuk paket custom.');
+                alert('Silakan pilih vendor terlebih dahulu dengan mengklik "Pilih Vendor"');
                 return;
             }
             
-            let total = 0;
             let vendorList = '';
+            let total = 0;
             
             selectedVendors.forEach(vendor => {
+                vendorList += `- ${vendor.name}: ${formatCurrency(vendor.price)}\n`;
                 total += vendor.price;
-                vendorList += `- ${vendor.name}\n`;
             });
             
-            // Format WhatsApp message
-            const message = `Halo, saya tertarik dengan Paket Custom dengan vendor berikut:\n${vendorList}\nTotal: Rp ${total.toLocaleString('id-ID')}\n\nBisakah saya mendapatkan informasi lebih lanjut?`;
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/6281327414126?text=${encodedMessage}`;
+            const message = `Halo, saya tertarik dengan Paket Custom dengan vendor berikut:\n${vendorList}\nTotal: ${formatCurrency(total)}\nBisakah saya mendapatkan informasi lebih lanjut?`;
+            const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(message)}`;
             
-            // Open WhatsApp
             window.open(whatsappUrl, '_blank');
         });
 
-        // Initialize vendor grid with all vendors
-        renderVendorGrid('all');
+        // Consultation form
+        document.getElementById('consultation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const weddingDate = document.getElementById('wedding-date').value;
+            const message = document.getElementById('message').value;
+            
+            const consultationMessage = `Halo, saya ${name}.\nEmail: ${email}\nTelepon: ${phone}\nTanggal Pernikahan: ${weddingDate}\nPesan: ${message}\n\nSaya ingin berkonsultasi tentang paket pernikahan.`;
+            const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(consultationMessage)}`;
+            
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            alert('Terima kasih! Pesan Anda telah dikirim. Kami akan menghubungi Anda segera.');
+        });
+
+        // Scroll animations
+        function checkScroll() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            renderVendorCards();
+            checkScroll();
+            
+            window.addEventListener('scroll', checkScroll);
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add vendor scrolling animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes scroll {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                .vendor-scroll > div {
+                    width: max-content;
+                }
+            `;
+            document.head.appendChild(style);
+        });
