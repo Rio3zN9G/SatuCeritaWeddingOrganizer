@@ -23,6 +23,8 @@
             --shadow-medium: 0 10px 25px rgba(0, 0, 0, 0.1);
             --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.15);
             --gradient-gold: linear-gradient(135deg, var(--soft-gold) 0%, var(--gold-dark) 100%);
+            --gradient-cream: linear-gradient(135deg, #f8f5f2 0%, #f0ebe6 100%);
+            --gradient-text: linear-gradient(135deg, var(--soft-gold) 0%, var(--gold-dark) 100%);
         }
 
         /* Reset & Base Styles */
@@ -87,7 +89,7 @@
         }
 
         .section-title h2 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             color: var(--dark-text);
             display: inline-block;
             position: relative;
@@ -108,13 +110,14 @@
             max-width: 600px;
             margin: 0 auto;
             color: var(--light-text);
+            font-size: 1.1rem;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0.9rem 2.2rem;
+            padding: 1rem 2.5rem;
             border-radius: 50px;
             font-weight: 600;
             transition: var(--transition);
@@ -188,7 +191,7 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: var(--soft-gold);
             position: relative;
@@ -288,7 +291,7 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 1.5rem;
             animation: textReveal 1.5s ease;
             position: relative;
@@ -297,7 +300,7 @@
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             margin-bottom: 2.5rem;
             animation: fadeInUp 1s ease 0.5s both;
             text-shadow: 0 1px 5px rgba(0,0,0,0.3);
@@ -390,14 +393,6 @@
             text-align: center;
             cursor: pointer;
             position: relative;
-            opacity: 0.7;
-            transform: scale(0.9);
-        }
-
-        .crew-card.active {
-            opacity: 1;
-            transform: scale(1);
-            box-shadow: var(--shadow-heavy);
         }
 
         .crew-card::before {
@@ -677,85 +672,653 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Vendor Categories */
-        .vendor-categories {
-            margin-top: 3rem;
-        }
-
-        .category-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            justify-content: center;
-        }
-
-        .category-btn {
-            padding: 0.8rem 1.8rem;
-            background-color: var(--cream);
-            border: none;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
+        /* NEW: Collaboration Section Styles */
+        .collaboration {
+            background-color: var(--white);
             position: relative;
             overflow: hidden;
         }
 
-        .category-btn.active {
+        .collaboration::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(248,245,242,0.3)"/></svg>');
+            background-size: cover;
+            pointer-events: none;
+        }
+
+        .collaboration-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .collaboration-text {
+            padding-right: 2rem;
+        }
+
+        .collaboration-text h2 {
+            color: var(--soft-gold);
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collaboration-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .collaboration-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: var(--cream);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-text p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 0;
+        }
+
+        .collaboration-slider {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .collaboration-slides {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .collaboration-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .collaboration-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: var(--white);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition-slow);
+        }
+
+        .collaboration-slide:hover .slide-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .slide-overlay h3 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .slide-overlay p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .collaboration-slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+            gap: 1rem;
+        }
+
+        .collaboration-slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .collaboration-slider-dot.active {
+            background-color: var(--soft-gold);
+            transform: scale(1.2);
+        }
+
+        .collaboration-slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            color: var(--soft-gold);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .collaboration-slider-arrow:hover {
             background-color: var(--soft-gold);
             color: var(--white);
+            transform: translateY(-50%) scale(1.1);
         }
 
-        .vendor-grid {
+        .collaboration-slider-arrow.prev {
+            left: 15px;
+        }
+
+        .collaboration-slider-arrow.next {
+            right: 15px;
+        }
+
+        /* Collaboration Packages */
+        .collaboration-packages {
+            margin-top: 5rem;
+        }
+
+        .collaboration-package-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
+            margin-top: 3rem;
         }
 
-        .vendor-card {
+        .collaboration-package-card {
             background-color: var(--white);
             border-radius: 15px;
             overflow: hidden;
             box-shadow: var(--shadow-light);
             transition: var(--transition);
-            cursor: pointer;
             position: relative;
+            border: 1px solid rgba(212,175,55,0.1);
         }
 
-        .vendor-card:hover {
+        .collaboration-package-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-heavy);
         }
 
-        .vendor-image {
-            height: 220px;
+        .collaboration-package-card.featured {
+            border: 2px solid var(--soft-gold);
+            transform: scale(1.05);
+        }
+
+        .collaboration-package-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .collaboration-package-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background-color: var(--soft-gold);
+            color: var(--white);
+            padding: 0.5rem 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+            z-index: 2;
+        }
+
+        .collaboration-package-header {
+            background: var(--gradient-gold);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
             overflow: hidden;
+        }
+
+        .collaboration-package-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .collaboration-package-header h3 {
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .collaboration-package-price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .collaboration-package-price span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .collaboration-package-body {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .collaboration-package-features {
+            margin-bottom: 2rem;
+        }
+
+        .collaboration-package-features li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .collaboration-package-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--soft-gold);
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(212,175,55,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Vendor Selection Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .vendor-modal {
+            background-color: var(--white);
+            border-radius: 20px;
+            width: 95%;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2.5rem;
+            position: relative;
+            transform: translateY(50px) scale(0.9);
+            opacity: 0;
+            transition: var(--transition-slow);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .modal-overlay.active .vendor-modal {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-header h2 {
+            color: var(--soft-gold);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--light-text);
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-modal:hover {
+            color: var(--dark-text);
+            background-color: var(--cream);
+        }
+
+        .modal-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            justify-content: center;
+        }
+
+        .modal-category-btn {
+            padding: 0.7rem 1.5rem;
+            background-color: var(--cream);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .modal-category-btn.active {
+            background-color: var(--soft-gold);
+            color: var(--white);
+        }
+
+        .vendor-category-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--soft-gold);
+            color: var(--white);
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .modal-vendor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .modal-vendor-card {
+            background-color: var(--cream);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            box-shadow: var(--shadow-light);
             position: relative;
         }
 
-        .vendor-image img {
+        .modal-vendor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .modal-vendor-card.selected {
+            border-color: var(--soft-gold);
+            transform: scale(1.05);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .modal-vendor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, transparent 50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .modal-vendor-image {
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .modal-vendor-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition-slow);
+            transition: var(--transition);
         }
 
-        .vendor-card:hover .vendor-image img {
+        .modal-vendor-card:hover .modal-vendor-image img {
             transform: scale(1.1);
         }
 
-        .vendor-info {
-            padding: 1.8rem;
+        .vendor-price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--soft-gold);
+            color: var(--white);
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
         }
 
-        .vendor-info h3 {
+        .modal-vendor-info {
+            padding: 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .modal-vendor-info h4 {
             margin-bottom: 0.5rem;
         }
 
-        .vendor-details {
+        .modal-vendor-info p {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            margin-bottom: 0;
+        }
+
+        .selected-vendors {
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .selected-vendors h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .selected-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .selected-item {
+            background: var(--gradient-gold);
+            color: var(--white);
+            padding: 0.7rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: var(--shadow-light);
+        }
+
+        .remove-vendor {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .remove-vendor:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .total-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--soft-gold);
+            text-align: right;
+            margin-top: 1.5rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        /* Vendor Showcase Section */
+        .vendor-showcase {
+            background-color: var(--cream);
+            padding: 4rem 0;
+        }
+
+        .vendor-category {
+            margin-bottom: 4rem;
+        }
+
+        .vendor-category h3 {
+            color: var(--soft-gold);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .vendor-category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .vendor-showcase-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .vendor-showcase-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .vendor-showcase-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .vendor-showcase-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .vendor-showcase-card:hover .vendor-showcase-image img {
+            transform: scale(1.1);
+        }
+
+        .vendor-showcase-info {
+            padding: 1.5rem;
+        }
+
+        .vendor-showcase-info h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .vendor-showcase-info p {
             color: var(--light-text);
             font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .vendor-showcase-price {
+            color: var(--soft-gold);
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
         /* Testimonial Section */
@@ -1125,226 +1688,6 @@
             z-index: 1;
         }
 
-        /* Vendor Selection Modal */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .vendor-modal {
-            background-color: var(--white);
-            border-radius: 20px;
-            width: 95%;
-            max-width: 1200px;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 2.5rem;
-            position: relative;
-            transform: translateY(50px) scale(0.9);
-            opacity: 0;
-            transition: var(--transition-slow);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .modal-overlay.active .vendor-modal {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .modal-header h2 {
-            color: var(--soft-gold);
-        }
-
-        .close-modal {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--light-text);
-            transition: var(--transition);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .close-modal:hover {
-            color: var(--dark-text);
-            background-color: var(--cream);
-        }
-
-        .modal-categories {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
-            justify-content: center;
-        }
-
-        .modal-category-btn {
-            padding: 0.7rem 1.5rem;
-            background-color: var(--cream);
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .modal-category-btn.active {
-            background-color: var(--soft-gold);
-            color: var(--white);
-        }
-
-        .modal-vendor-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1.8rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .modal-vendor-card {
-            background-color: var(--cream);
-            border-radius: 15px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            box-shadow: var(--shadow-light);
-            position: relative;
-        }
-
-        .modal-vendor-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .modal-vendor-card.selected {
-            border-color: var(--soft-gold);
-            transform: scale(1.05);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .modal-vendor-image {
-            height: 150px;
-            overflow: hidden;
-        }
-
-        .modal-vendor-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .modal-vendor-card:hover .modal-vendor-image img {
-            transform: scale(1.1);
-        }
-
-        .modal-vendor-info {
-            padding: 1.2rem;
-        }
-
-        .modal-vendor-info h4 {
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-vendor-info p {
-            font-size: 0.8rem;
-            color: var(--light-text);
-        }
-
-        .selected-vendors {
-            margin-top: 2.5rem;
-            padding-top: 2.5rem;
-            border-top: 1px solid #eee;
-        }
-
-        .selected-vendors h3 {
-            margin-bottom: 1.5rem;
-        }
-
-        .selected-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .selected-item {
-            background: var(--gradient-gold);
-            color: var(--white);
-            padding: 0.7rem 1.2rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            box-shadow: var(--shadow-light);
-        }
-
-        .remove-vendor {
-            background: none;
-            border: none;
-            color: var(--white);
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .remove-vendor:hover {
-            background-color: rgba(255,255,255,0.2);
-        }
-
-        .total-price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--soft-gold);
-            text-align: right;
-            margin-top: 1.5rem;
-        }
-
-        .modal-actions {
-            display: flex;
-            justify-content: flex-end;
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-        }
-
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -1449,6 +1792,24 @@
             }
         }
 
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
         .fade-in {
             opacity: 0;
             transform: translateY(40px);
@@ -1536,135 +1897,61 @@
             color: var(--white);
         }
 
-        /* New Vendor Showcase Section */
-        .vendor-showcase {
-            background-color: var(--cream);
-            padding: 4rem 0;
-        }
-
-        .vendor-category {
-            margin-bottom: 4rem;
-        }
-
-        .vendor-category h3 {
-            color: var(--soft-gold);
-            margin-bottom: 2rem;
-            text-align: center;
-            font-size: 1.8rem;
-        }
-
-        .vendor-category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .vendor-showcase-card {
-            background-color: var(--white);
-            border-radius: 15px;
+        /* Typewriter Animation */
+        .typewriter {
             overflow: hidden;
-            box-shadow: var(--shadow-light);
-            transition: var(--transition);
-            position: relative;
+            border-right: 2px solid var(--soft-gold);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typewriter 3.5s steps(40, end), blink 0.75s step-end infinite;
         }
 
-        .vendor-showcase-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .vendor-showcase-image {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .vendor-showcase-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .vendor-showcase-card:hover .vendor-showcase-image img {
-            transform: scale(1.1);
-        }
-
-        .vendor-showcase-info {
-            padding: 1.5rem;
-        }
-
-        .vendor-showcase-info h4 {
-            margin-bottom: 0.5rem;
-        }
-
-        .vendor-showcase-info p {
-            color: var(--light-text);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .vendor-showcase-price {
-            color: var(--soft-gold);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        /* Enhanced Vendor Modal */
-        .vendor-category-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--soft-gold);
-            color: var(--white);
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .modal-category-btn {
-            display: flex;
-            align-items: center;
-            padding: 0.7rem 1.5rem;
-        }
-
-        .modal-vendor-card {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .modal-vendor-card::before {
-            content: '';
+        /* Particle Background */
+        .particles {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, transparent 50%);
-            z-index: 1;
-            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
         }
 
-        .vendor-price-tag {
+        .particle {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--soft-gold);
-            color: var(--white);
-            padding: 0.3rem 0.7rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 2;
+            background: rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Glow Effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Parallax Effect */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         /* Responsive Styles */
         @media (max-width: 1200px) {
-            .package-card.featured {
+            .package-card.featured, .collaboration-package-card.featured {
                 transform: scale(1);
             }
             
-            .package-card.featured:hover {
+            .package-card.featured:hover, .collaboration-package-card.featured:hover {
                 transform: translateY(-10px);
             }
         }
@@ -1690,6 +1977,23 @@
             
             .slider-arrow {
                 display: none;
+            }
+            
+            .collaboration-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .collaboration-text {
+                padding-right: 0;
+            }
+            
+            .collaboration-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-vendor-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             }
         }
 
@@ -1737,13 +2041,21 @@
                 width: 100%;
                 text-align: center;
             }
-
-            .modal-vendor-grid {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            
+            .collaboration-slider-arrow {
+                display: none;
             }
             
-            .testimonial-slide {
-                padding: 2rem;
+            .modal-vendor-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+            }
+            
+            .modal-actions .btn {
+                width: 100%;
             }
         }
 
@@ -1760,25 +2072,17 @@
                 font-size: 1.1rem;
             }
             
-            .crew-grid, .package-grid, .vendor-grid {
+            .crew-grid, .package-grid, .vendor-grid, .collaboration-package-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .modal-vendor-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .modal-actions {
-                flex-direction: column;
-            }
-            
-            .modal-actions .btn {
-                width: 100%;
             }
             
             .footer-links {
                 flex-direction: column;
                 gap: 2rem;
+            }
+            
+            .modal-vendor-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
     </style>
@@ -1788,11 +2092,12 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a class="logo animated-text"><img src="assets/img/logo.png" height="50%" width="50%"></a>
+                <a class="logo animated-text">SatuCeritaOrganizer</a>
                 <ul class="nav-links">
                     <li><a href="#home" class="animated-text block-reveal">Home</a></li>
                     <li><a href="#profile" class="animated-text block-reveal">Profile</a></li>
                     <li><a href="#packages" class="animated-text block-reveal">Package</a></li>
+                    <li><a href="#collaboration" class="animated-text block-reveal">Kolaborasi</a></li>
                     <li><a href="#vendors" class="animated-text block-reveal">Vendors</a></li>
                     <li><a href="#testimonials" class="animated-text block-reveal">Testimoni</a></li>
                     <li><a href="#contact" class="animated-text block-reveal">Kontak</a></li>
@@ -1806,10 +2111,11 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="particles" id="particles"></div>
         <div class="container">
             <div class="hero-content">
-                <h1 class="text-slash">Satu Cerita Wedding Organizer</h1>
-                <p class="text-slash">We're to Make your dream weeding</p>
+                <h1 class="text-slash typewriter">Satu Cerita Wedding Organizer</h1>
+                <p class="text-slash">We're to Make your dream wedding</p>
                 <a href="#packages" class="btn btn-primary">Lihat Paket Kami</a>
             </div>
         </div>
@@ -1824,7 +2130,7 @@
             </div>
             <div class="profile-content fade-in">
                 <div class="profile-text">
-                    <h2 class="animated-text text-slash">Wedding SatuCeritaOrganizer</h2>
+                    <h2 class="animated-text text-slash gradient-text">Wedding SatuCeritaOrganizer</h2>
                     <p>Sebagai penyedia jasa wedding organizer profesional dengan pengalaman lebih dari 5 tahun, kami berkomitmen untuk mewujudkan pernikahan impian Anda dengan sempurna. Setiap pernikahan adalah cerita unik, dan kami hadir untuk memastikan cerita Anda menjadi kenangan indah yang tak terlupakan.</p>
                     <p>Dengan tim kreatif dan berpengalaman, kami menawarkan layanan lengkap mulai dari perencanaan, koordinasi, hingga eksekusi di hari-H. Nilai utama kami adalah profesionalitas, perhatian terhadap detail, dan kepuasan klien.</p>
                 </div>
@@ -1847,9 +2153,9 @@
                 </div>
                 
                 <div class="crew-slider">
-                    <div class="crew-card active">
+                    <div class="crew-card">
                         <div class="crew-image">
-                            <img src="assets/img/adit.jpg" alt="Sarah - Wedding Planner">
+                            <img src="assets/img/adit.jpg" alt="M. Aditya fahrul fauzy">
                         </div>
                         <div class="crew-info">
                             <h3>M. Aditya fahrul fauzy</h3>
@@ -1858,7 +2164,7 @@
                     </div>
                     <div class="crew-card">
                         <div class="crew-image">
-                            <img src="assets/img/Nabila.jpg" alt="Budi - Dekorator">
+                            <img src="assets/img/Nabila.jpg" alt="Nabila S. Alya">
                         </div>
                         <div class="crew-info">
                             <h3>Nabila S. Alya</h3>
@@ -1867,7 +2173,7 @@
                     </div>
                     <div class="crew-card">
                         <div class="crew-image">
-                            <img src="assets/img/Mely.jpg" alt="Maya - Koordinator">
+                            <img src="assets/img/Mely.jpg" alt="Mely Ristiani Sutrawana">
                         </div>
                         <div class="crew-info">
                             <h3>Mely Ristiani Sutrawana</h3>
@@ -1876,7 +2182,7 @@
                     </div>
                     <div class="crew-card">
                         <div class="crew-image">
-                            <img src="assets/img/Reka.jpg" alt="Rizky - Vendor Manager">
+                            <img src="assets/img/Reka.jpg" alt="Reka Indra Restik">
                         </div>
                         <div class="crew-info">
                             <h3>Reka Indra Restik</h3>
@@ -1885,10 +2191,10 @@
                     </div>
                     <div class="crew-card">
                         <div class="crew-image">
-                            <img src="assets/img/Reka.jpg" alt="Rizky - Vendor Manager">
+                            <img src="assets/img/putri.jpg" alt="Putwi Dede Lestari">
                         </div>
                         <div class="crew-info">
-                            <h3>Putwi Dede Lestari</h3>
+                            <h3>Putri Dede Lestari</h3>
                             <p>Crew</p>
                         </div>
                     </div>
@@ -1896,6 +2202,7 @@
               
                 <div class="slider-controls">
                     <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
                     <div class="slider-dot"></div>
                     <div class="slider-dot"></div>
                     <div class="slider-dot"></div>
@@ -2023,6 +2330,173 @@
         </div>
     </section>
 
+    <!-- Collaboration Section -->
+    <section id="collaboration" class="collaboration">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="animated-text text-slash">Kolaborasi Eksklusif</h2>
+                <p>Kerja sama antara Satu Cerita Wedding Organizer dan Gina Fauzir untuk mewujudkan pengalaman pernikahan impian Anda</p>
+            </div>
+            
+            <div class="collaboration-content fade-in">
+                <div class="collaboration-text">
+                    <h2 class="animated-text text-slash gradient-text">Gina Fauzir</h2>
+                    <p>Sebagai makeup artist profesional dengan pengalaman lebih dari 8 tahun di industri pernikahan, Gina Fauzir telah membantu ratusan pengantin tampil sempurna di hari bahagia mereka. Dengan keahlian khusus dalam berbagai teknik makeup dari natural hingga glamour, Gina memahami bagaimana menonjolkan keindahan alami setiap pengantin.</p>
+                    <p>Kolaborasi kami dengan Gina Fauzir memberikan Anda akses eksklusif ke talenta terbaik dalam industri kecantikan pernikahan, memastikan Anda tampil percaya diri dan memukau di hari pernikahan Anda.</p>
+                    
+                    <div class="collaboration-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Makeup Profesional</h4>
+                                <p>Teknik makeup terbaik untuk pengantin dan keluarga</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Touch-up Sepanjang Acara</h4>
+                                <p>Memastikan makeup tetap sempurna dari awal hingga akhir</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Produk Berkualitas</h4>
+                                <p>Menggunakan produk high-end yang tahan lama dan aman</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Konsultasi Gratis</h4>
+                                <p>Sesi konsultasi untuk menentukan look yang sesuai dengan kepribadian Anda</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collaboration-slider">
+                    <div class="collaboration-slider-arrow prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="collaboration-slider-arrow next">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    
+                    <div class="collaboration-slides">
+                        <div class="collaboration-slide">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Makeup Pengantin">
+                            <div class="slide-overlay">
+                                <h3>Makeup Pengantin</h3>
+                                <p>Makeup elegan yang disesuaikan dengan tema pernikahan dan kepribadian pengantin</p>
+                            </div>
+                        </div>
+                        <div class="collaboration-slide">
+                            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Dekorasi Pernikahan">
+                            <div class="slide-overlay">
+                                <h3>Dekorasi Pernikahan</h3>
+                                <p>Konsep dekorasi yang selaras dengan tema makeup untuk menciptakan pengalaman yang menyeluruh</p>
+                            </div>
+                        </div>
+                        <div class="collaboration-slide">
+                            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Konsep Tema">
+                            <div class="slide-overlay">
+                                <h3>Konsep Tema</h3>
+                                <p>Kolaborasi menyeluruh antara makeup, dekorasi, dan tema pernikahan untuk hasil yang harmonis</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="collaboration-slider-controls">
+                        <div class="collaboration-slider-dot active"></div>
+                        <div class="collaboration-slider-dot"></div>
+                        <div class="collaboration-slider-dot"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Collaboration Packages -->
+            <div class="collaboration-packages">
+                <div class="section-title">
+                    <h2 class="animated-text text-slash">Paket Kolaborasi</h2>
+                    <p>Pilih paket kolaborasi eksklusif dengan Gina Fauzir untuk pernikahan Anda</p>
+                </div>
+                
+                <div class="collaboration-package-grid">
+                    <div class="collaboration-package-card fade-in">
+                        <div class="collaboration-package-header">
+                            <h3>Paket Basic</h3>
+                            <div class="collaboration-package-price">Rp 15.000.000</div>
+                        </div>
+                        <div class="collaboration-package-body">
+                            <p>Paket makeup dasar untuk pengantin dengan hasil natural dan elegan</p>
+                            <ul class="collaboration-package-features">
+                                <li>Makeup pengantin (natural look)</li>
+                                <li>1x trial makeup</li>
+                                <li>Produk makeup berkualitas tinggi</li>
+                                <li>Durasi 3 jam</li>
+                                <li>Touch-up ringan</li>
+                            </ul>
+                            <button class="btn btn-primary btn-order" data-package="Paket Basic Gina Fauzir" data-price="15000000">Pesan Sekarang</button>
+                        </div>
+                    </div>
+                    
+                    <div class="collaboration-package-card fade-in featured">
+                        <div class="collaboration-package-badge">Populer</div>
+                        <div class="collaboration-package-header">
+                            <h3>Paket Premium</h3>
+                            <div class="collaboration-package-price">Rp 25.000.000</div>
+                        </div>
+                        <div class="collaboration-package-body">
+                            <p>Paket lengkap untuk pengantin yang menginginkan tampilan glamour dan tahan lama</p>
+                            <ul class="collaboration-package-features">
+                                <li>Makeup pengantin (glamour look)</li>
+                                <li>2x trial makeup</li>
+                                <li>Produk makeup luxury</li>
+                                <li>Durasi 5 jam</li>
+                                <li>Touch-up lengkap sepanjang acara</li>
+                                <li>Makeup untuk ibu pengantin</li>
+                                <li>Konsultasi tema dan konsep</li>
+                            </ul>
+                            <button class="btn btn-primary btn-order" data-package="Paket Premium Gina Fauzir" data-price="25000000">Pesan Sekarang</button>
+                        </div>
+                    </div>
+                    
+                    <div class="collaboration-package-card fade-in">
+                        <div class="collaboration-package-header">
+                            <h3>Paket Royal</h3>
+                            <div class="collaboration-package-price">Rp 40.000.000</div>
+                        </div>
+                        <div class="collaboration-package-body">
+                            <p>Paket eksklusif untuk pernikahan mewah dengan perhatian penuh dari Gina Fauzir</p>
+                            <ul class="collaboration-package-features">
+                                <li>Makeup pengantin (custom look)</li>
+                                <li>3x trial makeup</li>
+                                <li>Produk makeup premium import</li>
+                                <li>Durasi full day</li>
+                                <li>Touch-up lengkap sepanjang acara</li>
+                                <li>Makeup untuk keluarga pengantin (4 orang)</li>
+                                <li>Konsultasi mendalam tema dan konsep</li>
+                                <li>Dokumentasi profesional sesi makeup</li>
+                                <li>Gratis bridal shower makeup</li>
+                            </ul>
+                            <button class="btn btn-primary btn-order" data-package="Paket Royal Gina Fauzir" data-price="40000000">Pesan Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Vendor Showcase Section -->
     <section id="vendors" class="vendor-showcase">
         <div class="container">
@@ -2030,19 +2504,36 @@
                 <h2 class="animated-text text-slash">Partnership</h2>
                 <p>Kami bekerja sama dengan vendor terbaik untuk mewujudkan pernikahan impian Anda</p>
             </div>
-            <marquee direction="right">
-                <img src="assets/img/makeup.png" height="25%" width="25%">
-                <img src="assets/img/foto.png" height="25%" width="25%">
-                <img src="assets/img/video.png" height="25%" width="25%">
-                <img src="assets/img/venue.png" height="25%" width="25%">
-                <img src="assets/img/ent.png" height="25%" width="25%">
-                <img src="assets/img/mc.png" height="25%" width="25%">
-                <img src="assets/img/food.png" height="25%" width="25%">
-                <img src="assets/img/wok.png" height="25%" width="25%">
-                <img src="assets/img/cater.png" height="25%" width="25%">
-                <img src="assets/img/upacara.png" height="25%" width="25%">
-                <img src="assets/img/dekor.png" height="25%" width="25%">
-            </marquee>
+            <div style="overflow: hidden; padding: 20px 0;">
+                <div class="vendor-scroll">
+                    <div style="display: flex; animation: scroll 30s linear infinite;">
+                        <div style="display: flex; gap: 30px;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Makeup" alt="Makeup" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Foto" alt="Foto" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Video" alt="Video" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Venue" alt="Venue" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Entertainment" alt="Entertainment" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=MC" alt="MC" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Food" alt="Food" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Catering" alt="Catering" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Upacara" alt="Upacara" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Dekor" alt="Dekor" style="height: 80px; object-fit: contain;">
+                        </div>
+                        <div style="display: flex; gap: 30px;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Makeup" alt="Makeup" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Foto" alt="Foto" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Video" alt="Video" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Venue" alt="Venue" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Entertainment" alt="Entertainment" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=MC" alt="MC" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Food" alt="Food" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Catering" alt="Catering" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Upacara" alt="Upacara" style="height: 80px; object-fit: contain;">
+                            <img src="https://via.placeholder.com/150x80/fff/666?text=Dekor" alt="Dekor" style="height: 80px; object-fit: contain;">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2124,7 +2615,7 @@
             </div>
             
             <div class="modal-vendor-grid" id="modalVendorGrid">
-                <!-- Vendor cards will be dynamically added here -->
+                <!-- Vendor cards -->
             </div>
             
             <div class="selected-vendors">
@@ -2295,6 +2786,7 @@
                             <li><a href="#home">Home</a></li>
                             <li><a href="#profile">Profile</a></li>
                             <li><a href="#packages">Package</a></li>
+                            <li><a href="#collaboration">Kolaborasi</a></li>
                             <li><a href="#vendors">Vendors</a></li>
                             <li><a href="#testimonials">Testimoni</a></li>
                             <li><a href="#contact">Kontak</a></li>
@@ -2306,7 +2798,7 @@
                             <li><a href="#packages">Wedding Only</a></li>
                             <li><a href="#packages">Paket A - Elegant</a></li>
                             <li><a href="#packages">Paket B - Classic</a></li>
-                            <li><a href="#packages">Paket Custom</a></li>
+                            <li><a href="#collaboration">Paket Kolaborasi</a></li>
                         </ul>
                     </div>
                     <div>
@@ -2324,462 +2816,6 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // Vendor Data (without prices displayed to users)
-        const vendorData = [
-            // Master of Ceremony
-            { id: 46, name: "Riny Lusiana", category: "mc", price: 3000000, image: "assets/img/riny.jpg", description: "MC berpengalaman untuk memandu acara pernikahan" },
-            { id: 47, name: "Rizaludin Azmi", category: "mc", price: 4500000, image: "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "MC dengan gaya interaktif dan menghibur" },
-            { id: 48, name: "Iman Nugraha", category: "mc", price: 6000000, image: "https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "MC yang fasih berbahasa Indonesia dan Inggris" },
-            
-            // Makeup
-            { id: 1, name: "Ai make up", category: "makeup", price: 5000000, image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional dengan pengalaman 8 tahun" },
-            { id: 2, name: "Aisyah Raini", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
-            { id: 3, name: "By Usi Make up", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
-            { id: 4, name: "Andini Martha", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
-            { id: 5, name: "Nourma Lathifah", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
-            { id: 6, name: "Sinta Ho", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
-            { id: 7, name: "Tyna Rahim", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
-            { id: 8, name: "Rose Mini Make up", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
-            { id: 9, name: "Mayang Ks", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
-            { id: 10, name: "She Make Up", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
-            { id: 11, name: "Gina Fauzir", category: "makeup", price: 4500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
-            
-            // Foto & Videografi
-            { id: 12, name: "Rayiraka Picture", category: "photo", price: 8000000, image: "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Fotografer dan videografer profesional dengan peralatan lengkap" },
-            { id: 13, name: "Cerita Kita Abadi", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
-            { id: 14, name: "Sararay Joyful Image", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
-            { id: 15, name: "Rizal Photograph", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
-            { id: 16, name: "Tapak Jejak", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
-            { id: 17, name: "Kemarin Sore", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
-            { id: 18, name: "Zero Pictura", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
-            { id: 19, name: "Maxlomo Story", category: "photo", price: 10000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
-            
-            // Dekorasi
-            { id: 20, name: "Awside Decoration", category: "decor", price: 15000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis dekorasi pernikahan dengan konsep elegan" },
-            { id: 21, name: "Dais Decoration", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
-            { id: 22, name: "Raditya Dekorasi", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
-            { id: 23, name: "Piimow", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
-            { id: 24, name: "Depang Sunardi", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
-            { id: 25, name: "Azzara Wedding", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
-            { id: 26, name: "Peonies Dream", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
-            { id: 27, name: "Razfatih Decoration", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
-            { id: 28, name: "Wood Queen", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
-            
-            // Entertainment
-            { id: 29, name: "Blue Monday", category: "entertainment", price: 7000000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Live band dengan repertoire lagu-lagu romantis" },
-            { id: 30, name: "Ritme Music", category: "entertainment", price: 7000000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Live band dengan repertoire lagu-lagu romantis" },
-            { id: 31, name: "Symponi Music", category: "entertainment", price: 7000000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Live band dengan repertoire lagu-lagu romantis" },
-            
-            // Upacara Adat
-            { id: 32, name: "Sanggar Seni Dewi Sukma", category: "custom", price: 10000000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Paket lengkap upacara adat Jawa dengan sesepuh" },
-            { id: 33, name: "Astagiri", category: "custom", price: 8500000, image: "https://images.unsplash.com/photo-1587502537104-aac10ef65a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Pelaksanaan upacara adat Sunda yang autentik" },
-            { id: 34, name: "Giri Marga", category: "custom", price: 8500000, image: "https://images.unsplash.com/photo-1587502537104-aac10ef65a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Pelaksanaan upacara adat Sunda yang autentik" },
-            { id: 35, name: "GWS Pro", category: "custom", price: 8500000, image: "https://images.unsplash.com/photo-1587502537104-aac10ef65a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Pelaksanaan upacara adat Sunda yang autentik" },
-            { id: 36, name: "Gupay Mitra", category: "custom", price: 8500000, image: "https://images.unsplash.com/photo-1587502537104-aac10ef65a5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Pelaksanaan upacara adat Sunda yang autentik" },
-
-            // WO Konten Kreator
-            { id: 37, name: "Svara Cinta Wedding Content Creator", category: "content", price: 5000000, image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Konten kreator untuk dokumentasi pernikahan yang menarik" },
-            
-            // Venue
-            { id: 38, name: "De Jehan Hotel", category: "venue", price: 25000000, image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Venue mewah dengan kapasitas hingga 500 tamu" },
-            { id: 39, name: "Santika Hotel", category: "venue", price: 18000000, image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Taman outdoor dengan suasana romantis dan natural" },
-            { id: 40, name: "Grand Cordela Hotel", category: "venue", price: 18000000, image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Taman outdoor dengan suasana romantis dan natural" },
-            { id: 41, name: "Grage Hotel", category: "venue", price: 18000000, image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Taman outdoor dengan suasana romantis dan natural" },
-            
-            // Catering
-            { id: 42, name: "Alma Catering", category: "catering", price: 35000000, image: "https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Katering premium dengan menu internasional untuk 200 tamu" },
-            { id: 43, name: "Aditya Catering", category: "catering", price: 25000000, image: "https://images.unsplash.com/photo-1559314809-0f1556aae6aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Menu tradisional Indonesia dengan cita rasa autentik" },
-            
-            // Dessert & Foodcourt
-            { id: 44, name: "Znj Dessert", category: "dessert", price: 8000000, image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dessert table dengan berbagai pilihan kue dan pastry" },
-            { id: 45, name: "Otaku Coffe", category: "dessert", price: 12000000, image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Berbagai stan makanan untuk pengalaman kuliner yang beragam" }
-        ];
-
-        // Selected vendors array
-        let selectedVendors = [];
-
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-            this.querySelector('i').classList.toggle('fa-bars');
-            this.querySelector('i').classList.toggle('fa-times');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
-                document.querySelector('.mobile-menu i').classList.add('fa-bars');
-                document.querySelector('.mobile-menu i').classList.remove('fa-times');
-            });
-        });
-
-        // Sticky Navbar
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-                header.style.padding = '0.5rem 0';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-                header.style.padding = '1.2rem 0';
-            }
-        });
-
-        // Package Tabs
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
-                tabBtns.forEach(b => b.classList.remove('active'));
-                tabContents.forEach(c => c.classList.remove('active'));
-                
-                // Add active class to clicked button and corresponding content
-                btn.classList.add('active');
-                const tabId = btn.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-
-        // Crew Slider
-        const crewSlider = document.querySelector('.crew-slider');
-        const crewCards = document.querySelectorAll('.crew-card');
-        const crewDots = document.querySelectorAll('.crew-slider-container .slider-dot');
-        const crewPrevBtn = document.querySelector('.crew-slider-container .slider-arrow.prev');
-        const crewNextBtn = document.querySelector('.crew-slider-container .slider-arrow.next');
-        let currentCrewSlide = 0;
-
-        function showCrewSlide(n) {
-            if (n < 0) {
-                currentCrewSlide = crewCards.length - 1;
-            } else if (n >= crewCards.length) {
-                currentCrewSlide = 0;
-            } else {
-                currentCrewSlide = n;
-            }
-            
-            // Update active card
-            crewCards.forEach(card => card.classList.remove('active'));
-            crewCards[currentCrewSlide].classList.add('active');
-            
-            // Update dots
-            crewDots.forEach(dot => dot.classList.remove('active'));
-            crewDots[currentCrewSlide].classList.add('active');
-        }
-
-        // Next slide
-        crewNextBtn.addEventListener('click', () => {
-            showCrewSlide(currentCrewSlide + 1);
-        });
-
-        // Previous slide
-        crewPrevBtn.addEventListener('click', () => {
-            showCrewSlide(currentCrewSlide - 1);
-        });
-
-        // Dot click events
-        crewDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showCrewSlide(index);
-            });
-        });
-
-        // Auto slide every 5 seconds
-        setInterval(() => {
-            showCrewSlide(currentCrewSlide + 1);
-        }, 5000);
-
-        // Testimonial Slider
-        const slides = document.querySelector('.testimonial-slides');
-        const dots = document.querySelectorAll('.testimonial-slider .slider-dot');
-        const prevBtn = document.querySelector('.testimonial-slider .slider-arrow.prev');
-        const nextBtn = document.querySelector('.testimonial-slider .slider-arrow.next');
-        let currentSlide = 0;
-
-        function showSlide(n) {
-            if (n < 0) {
-                currentSlide = dots.length - 1;
-            } else if (n >= dots.length) {
-                currentSlide = 0;
-            } else {
-                currentSlide = n;
-            }
-            
-            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[currentSlide].classList.add('active');
-        }
-
-       
-        nextBtn.addEventListener('click', () => {
-            showSlide(currentSlide + 1);
-        });
-
-       
-        prevBtn.addEventListener('click', () => {
-            showSlide(currentSlide - 1);
-        });
-
-     
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showSlide(index);
-            });
-        });
-
-        
-        setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 5000);
-
-        
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        function checkScroll() {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', checkScroll);
-        window.addEventListener('load', checkScroll);
-
-        
-        document.getElementById('consultation-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Terima kasih! Pesan Anda telah berhasil dikirim. Tim kami akan segera menghubungi Anda.');
-            this.reset();
-        });
-
-        
-        const vendorModal = document.getElementById('vendorModal');
-        const openModalBtn = document.getElementById('openVendorModal');
-        const closeModalBtn = document.querySelector('.close-modal');
-        const modalVendorGrid = document.getElementById('modalVendorGrid');
-        const modalCategoryBtns = document.querySelectorAll('.modal-category-btn');
-        const modalSelectedList = document.getElementById('modalSelectedList');
-        const modalTotalPrice = document.getElementById('modalTotalPrice');
-        const resetSelectionBtn = document.getElementById('resetSelection');
-        const saveSelectionBtn = document.getElementById('saveSelection');
-        const customPackageSummary = document.getElementById('customPackageSummary');
-        const selectedVendorsList = document.getElementById('selectedVendorsList');
-        const totalPrice = document.getElementById('totalPrice');
-
-     
-        openModalBtn.addEventListener('click', () => {
-            vendorModal.classList.add('active');
-            renderVendorGrid('all');
-            updateModalSelection();
-        });
-
-      
-        closeModalBtn.addEventListener('click', () => {
-            vendorModal.classList.remove('active');
-        });
-
-       
-        vendorModal.addEventListener('click', (e) => {
-            if (e.target === vendorModal) {
-                vendorModal.classList.remove('active');
-            }
-        });
-
-      
-        modalCategoryBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                modalCategoryBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const category = btn.getAttribute('data-category');
-                renderVendorGrid(category);
-            });
-        });
-
-       
-        function renderVendorGrid(category) {
-            modalVendorGrid.innerHTML = '';
-            
-            const filteredVendors = category === 'all' 
-                ? vendorData 
-                : vendorData.filter(vendor => vendor.category === category);
-            
-            filteredVendors.forEach(vendor => {
-                const isSelected = selectedVendors.some(v => v.id === vendor.id);
-                
-                const vendorCard = document.createElement('div');
-                vendorCard.className = `modal-vendor-card ${isSelected ? 'selected' : ''}`;
-                vendorCard.setAttribute('data-id', vendor.id);
-                vendorCard.innerHTML = `
-                
-                    <div class="modal-vendor-image">
-                        <img src="${vendor.image}" alt="${vendor.name}">
-                    </div>
-                    <div class="modal-vendor-info">
-                        <h4>${vendor.name}</h4>
-                        <p>${vendor.description}</p>
-                    </div>
-                `;
-                
-                vendorCard.addEventListener('click', () => {
-                    toggleVendorSelection(vendor);
-                });
-                
-                modalVendorGrid.appendChild(vendorCard);
-            });
-        }
-
-        
-        function toggleVendorSelection(vendor) {
-            
-            const existingVendorIndex = selectedVendors.findIndex(v => v.category === vendor.category);
-            
-            if (existingVendorIndex !== -1) {
-              
-                selectedVendors.splice(existingVendorIndex, 1);
-            }
-            
-           
-            const index = selectedVendors.findIndex(v => v.id === vendor.id);
-            
-            if (index === -1) {
-               
-                selectedVendors.push(vendor);
-            } else {
-                
-                selectedVendors.splice(index, 1);
-            }
-            
-            updateModalSelection();
-            renderVendorGrid(document.querySelector('.modal-category-btn.active').getAttribute('data-category'));
-        }
-
-        // Update modal selection display
-        function updateModalSelection() {
-            modalSelectedList.innerHTML = '';
-            let total = 0;
-            
-            selectedVendors.forEach(vendor => {
-                total += vendor.price;
-                
-                const selectedItem = document.createElement('div');
-                selectedItem.className = 'selected-item';
-                selectedItem.innerHTML = `
-                    ${vendor.name} (${vendor.category})
-                    <button class="remove-vendor" data-id="${vendor.id}">&times;</button>
-                `;
-                
-                selectedItem.querySelector('.remove-vendor').addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    toggleVendorSelection(vendor);
-                });
-                
-                modalSelectedList.appendChild(selectedItem);
-            });
-            
-            modalTotalPrice.textContent = `Total: Rp ${total.toLocaleString('id-ID')}`;
-        }
-
-        // Reset selection
-        resetSelectionBtn.addEventListener('click', () => {
-            selectedVendors = [];
-            updateModalSelection();
-            renderVendorGrid(document.querySelector('.modal-category-btn.active').getAttribute('data-category'));
-        });
-
-        // Save selection
-        saveSelectionBtn.addEventListener('click', () => {
-            vendorModal.classList.remove('active');
-            updatePackageSummary();
-        });
-
-     
-        function updatePackageSummary() {
-            if (selectedVendors.length > 0) {
-                customPackageSummary.style.display = 'block';
-                selectedVendorsList.innerHTML = '';
-                let total = 0;
-                
-                selectedVendors.forEach(vendor => {
-                    total += vendor.price;
-                    
-                    const vendorItem = document.createElement('div');
-                    vendorItem.className = 'selected-item';
-                    vendorItem.innerHTML = `
-                        ${vendor.name} (${vendor.category})
-                    `;
-                    selectedVendorsList.appendChild(vendorItem);
-                });
-                
-                totalPrice.textContent = `Total: Rp ${total.toLocaleString('id-ID')}`;
-            } else {
-                customPackageSummary.style.display = 'none';
-            }
-        }
-
-        
-        const animatedTexts = document.querySelectorAll('.animated-text');
-        
-        animatedTexts.forEach(text => {
-            text.addEventListener('mouseenter', () => {
-                text.style.transform = 'scale(1.05)';
-                text.style.transition = 'transform 0.3s ease';
-            });
-            
-            text.addEventListener('mouseleave', () => {
-                text.style.transform = 'scale(1)';
-            });
-        });
-
-       
-        document.querySelectorAll('.btn-order').forEach(button => {
-            button.addEventListener('click', function() {
-                const packageName = this.getAttribute('data-package');
-                const packagePrice = this.getAttribute('data-price');
-                
-              
-                const message = `Halo, saya tertarik dengan ${packageName} seharga Rp ${parseInt(packagePrice).toLocaleString('id-ID')}. Bisakah saya mendapatkan informasi lebih lanjut?`;
-                const encodedMessage = encodeURIComponent(message);
-                const whatsappUrl = `https://wa.me/6281234567890?text=${encodedMessage}`;
-                
-              
-                window.open(whatsappUrl, '_blank');
-            });
-        });
-
-        document.querySelector('.btn-order-custom').addEventListener('click', function() {
-            if (selectedVendors.length === 0) {
-                alert('Silakan pilih vendor terlebih dahulu untuk paket custom.');
-                return;
-            }
-            
-            let total = 0;
-            let vendorList = '';
-            
-            selectedVendors.forEach(vendor => {
-                total += vendor.price;
-                vendorList += `- ${vendor.name} (${vendor.category})\n`;
-            });
-            
-            const message = `Halo, saya tertarik dengan Paket Custom dengan vendor berikut:\n${vendorList}\nTotal: Rp ${total.toLocaleString('id-ID')}\n\nBisakah saya mendapatkan informasi lebih lanjut?`;
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/6281234567890?text=${encodedMessage}`;
-            
-            window.open(whatsappUrl, '_blank');
-        });
-
-   
-        renderVendorGrid('all');
-    </script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
