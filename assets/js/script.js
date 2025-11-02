@@ -1,65 +1,78 @@
    // Vendor Data
+// Vendor Data
 const vendorData = [
-    // Master of Ceremony
+    // Master of Ceremony (Kategori tidak ada di PDF, data asli dipertahankan)
     { id: 46, name: "Riny Lusiana", category: "mc", price: 700000, image: "assets/img/riny.jpg", description: "MC berpengalaman untuk memandu acara pernikahan" },
     { id: 47, name: "Rizaludin Azmi", category: "mc", price: 700000, image: "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "MC dengan gaya interaktif dan menghibur" },
     { id: 48, name: "Iman Nugraha", category: "mc", price: 1350000, image: "https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "MC yang fasih berbahasa Indonesia dan Inggris" },
 
-    // Makeup
-    { id: 1, name: "Ai make up", category: "makeup", price: 10000000, image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional dengan pengalaman 8 tahun" },
-    { id: 2, name: "Aisyah Raini", category: "makeup", price: 7500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" },
-    { id: 11, name: "Gina Fauzir", category: "makeup", price: 8000000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist premium dengan pengalaman 10+ tahun" },
-    { id: 45, name: "Nourma Latifah", category: "makeup", price: 7500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist premium dengan pengalaman 10+ tahun" },
-    { id: 49, name: "She makeup", category: "makeup", price: 8000000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist premium dengan pengalaman 10+ tahun" },
-    { id: 54, name: "Shinta HO", category: "makeup", price: 7000000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional untuk hari spesial Anda" },
-    { id: 55, name: "Mayang KS", category: "makeup", price: 8000000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional untuk hari spesial Anda" },
-    { id: 56, name: "Rosemini Makeup", category: "makeup", price: 7500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional untuk hari spesial Anda" },
-    { id: 57, name: "Tyna Rahim", category: "makeup", price: 7500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional untuk hari spesial Anda" },
+    // Makeup (Diperbarui dari PDF [cite: 246])
+    { id: 1, name: "Ai make up", category: "makeup", price: 10000000, image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional dengan pengalaman 8 tahun" }, // Sesuai dengan "AI Makeup" [cite: 250]
+    { id: 2, name: "Aisyah Raini", category: "makeup", price: 7500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Tim makeup artist lengkap untuk pengantin dan keluarga" }, // Sesuai dengan "Aisyah Raini" [cite: 252]
+    { id: 11, name: "Gina Fauzir", category: "makeup", price: 8000000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist premium dengan pengalaman 10+ tahun" }, // Sesuai dengan "Ginafauzirr" [cite: 256]
+    { id: 45, name: "Nourma Latifah", category: "makeup", price: 7500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist premium dengan pengalaman 10+ tahun" }, // Sesuai dengan "Nouma Lathifah" [cite: 247]
+    { id: 49, name: "She makeup", category: "makeup", price: 8000000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist premium dengan pengalaman 10+ tahun" }, // Sesuai dengan "She Makeup" [cite: 254]
+    { id: 54, name: "Shinta HO", category: "makeup", price: 7000000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional untuk hari spesial Anda" }, // Sesuai dengan "Sinta HO" [cite: 248]
+    { id: 55, name: "Mayang KS", category: "makeup", price: 8000000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional untuk hari spesial Anda" }, // Sesuai dengan "Msysngks" [cite: 255]
+    { id: 56, name: "Rosemini Makeup", category: "makeup", price: 7500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional untuk hari spesial Anda" }, // Sesuai dengan "Rosemini" [cite: 249]
+    { id: 57, name: "Tyna Rahim", category: "makeup", price: 7500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional untuk hari spesial Anda" }, // Sesuai dengan "Tynarahim" [cite: 251]
+    // BARU DARI PDF
+    { id: 100, name: "Andini Marta", category: "makeup", price: 7500000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional" }, // 
+    { id: 101, name: "Diva Makeup", category: "makeup", price: 7000000, image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Makeup artist profesional" }, // 
 
-    // Foto & Videografi
-    { id: 12, name: "Rayiraka Picture", category: "photo", price: 3000000, image: "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Fotografer dan videografer profesional dengan peralatan lengkap" },
-    { id: 13, name: "Kemarin Sore", category: "photo", price: 6500000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
-    { id: 50, name: "Cerita Kita Abadi", category: "photo", price: 2700000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
-    { id: 51, name: "Sararay", category: "photo", price: 6300000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
-    { id: 52, name: "Maxlomo", category: "photo", price: 3800000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
-    { id: 53, name: "Zero pictura", category: "photo", price: 5000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" },
-    { id: 58, name: "Rizal Photograpy", category: "photo", price: 5000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Fotografer profesional dengan hasil memukau" },
+    // Foto & Videografi (Diperbarui dari PDF [cite: 258])
+    { id: 12, name: "Rayiraka Picture", category: "photo", price: 3000000, image: "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Fotografer dan videografer profesional dengan peralatan lengkap" }, // Sesuai dengan "Rairaka" [cite: 262]
+    { id: 13, name: "Kemarin Sore", category: "photo", price: 6500000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" }, // Sesuai dengan "Kemarin Sore" [cite: 261]
+    { id: 51, name: "Sararay", category: "photo", price: 6300000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" }, // Sesuai dengan "Sararay" [cite: 260]
+    { id: 52, name: "Maxlomo", category: "photo", price: 3800000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" }, // Sesuai dengan "Maxlomostory" [cite: 259]
+    { id: 53, name: "Zero pictura", category: "photo", price: 5000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis cinematic wedding video dan foto artistic" }, // Sesuai dengan "Zero Pictura" [cite: 263]
+    { id: 58, name: "Rizal Photograpy", category: "photo", price: 5000000, image: "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Fotografer profesional dengan hasil memukau" }, // Sesuai dengan "Rizal Photograph" [cite: 264]
+    // { id: 50, name: "Cerita Kita Abadi", ... } // Dihapus karena tidak ada di PDF
 
-    // Dekorasi
-    { id: 20, name: "Awside Decoration", category: "decor", price: 15000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis dekorasi pernikahan dengan konsep elegan" },
-    { id: 21, name: "Dais Decoration", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" },
-    { id: 59, name: "Cantika Dekorasi", category: "decor", price: 6500000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" },
-    { id: 60, name: "Piimow", category: "decor", price: 6000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" },
-    { id: 61, name: "Razfatih", category: "decor", price: 6000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" },
-    { id: 62, name: "Woodqueen", category: "decor", price: 6500000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" },
-    { id: 63, name: "Raditya dekorasi", category: "decor", price: 10000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" },
+    // Dekorasi (Diperbarui dari PDF [cite: 270])
+    { id: 20, name: "Awside Decoration", category: "decor", price: 15000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis dekorasi pernikahan dengan konsep elegan" }, // Sesuai dengan "Awsi Decoration" [cite: 275]
+    { id: 21, name: "Dais Decoration", category: "decor", price: 12000000, image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi dengan bunga segar dan tema romantis" }, // Sesuai dengan "Dais Decor" [cite: 277]
+    { id: 59, name: "Cantika Dekorasi", category: "decor", price: 6500000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" }, // Sesuai dengan "Cantika dekorasi" [cite: 278]
+    { id: 60, name: "Piimow", category: "decor", price: 6000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" }, // Sesuai dengan "Piimow Decoration" [cite: 272]
+    { id: 61, name: "Razfatih", category: "decor", price: 6000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" }, // Sesuai dengan "Razfatih" [cite: 271]
+    { id: 62, name: "Woodqueen", category: "decor", price: 6500000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" }, // Sesuai dengan "Woodqueen" [cite: 273]
+    { id: 63, name: "Raditya dekorasi", category: "decor", price: 10000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" }, // Sesuai dengan "Raditya Decor" [cite: 277]
+    // BARU DARI PDF
+    { id: 102, name: "Bunga Decor", category: "decor", price: 6000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" }, // 
+    { id: 103, name: "Dins Diva Wedding", category: "decor", price: 6000000, image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dekorasi pernikahan yang indah dan berkesan" }, // [cite: 276]
 
-    // Entertainment
-    { id: 29, name: "Blue Monday", category: "entertainment", price: 8000000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Live band dengan repertoire lagu-lagu romantis" },
-    { id: 64, name: "Symphony", category: "entertainment", price: 12000000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Orkestra atau live music premium untuk pernikahan" },
-    { id: 65, name: "Ritme music", category: "entertainment", price: 4750000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Live music akustik atau band dengan harga terjangkau" },
+    // Entertainment (Diperbarui dari PDF [cite: 279])
+    { id: 29, name: "Blue Monday", category: "entertainment", price: 8000000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Live band dengan repertoire lagu-lagu romantis" }, // Sesuai dengan "Blue Monday" 
+    { id: 64, name: "Symponi Entertaint", category: "entertainment", price: 12000000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Orkestra atau live music premium untuk pernikahan" }, // Diperbarui dari "Symphony" 
+    { id: 65, name: "Ritme music", category: "entertainment", price: 4750000, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Live music akustik atau band dengan harga terjangkau" }, // Sesuai dengan "Ritme Musik" [cite: 281]
 
-    // Upacara Adat
-    { id: 32, name: "Sanggar Seni Dewi Sukma", category: "custom", price: 10000000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Paket lengkap upacara adat Jawa dengan sesepuh" },
-    { id: 66, name: "Gupay mitra", category: "custom", price: 4000000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis layanan upacara adat" },
-    { id: 67, name: "Astagiri", category: "custom", price: 4000000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis layanan upacara adat" },
-    { id: 68, name: "Giri marga", category: "custom", price: 3500000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis layanan upacara adat" },
-    { id: 69, name: "Jws pro", category: "custom", price: 3800000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis layanan upacara adat" },
+    // Upacara Adat (Diperbarui dari PDF [cite: 265])
+    { id: 32, name: "Dewi Sukma", category: "custom", price: 10000000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Paket lengkap upacara adat" }, // Diperbarui dari "Sanggar Seni Dewi Sukma" [cite: 269]
+    { id: 67, name: "Astagiri", category: "custom", price: 4000000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis layanan upacara adat" }, // Sesuai dengan "Astagiri" [cite: 266]
+    { id: 68, name: "Giri marga", category: "custom", price: 3500000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis layanan upacara adat" }, // Sesuai dengan "Giri Marga" [cite: 267]
+    { id: 69, name: "Jws pro", category: "custom", price: 3800000, image: "https://images.unsplash.com/photo-1587502536575-6dfaba0e7b65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Spesialis layanan upacara adat" }, // Sesuai dengan "JWS Pro" [cite: 268]
+    // { id: 66, name: "Gupay mitra", ... } // Dihapus karena tidak ada di PDF
 
-    // WO Konten Kreator
+    // WO Konten Kreator (Kategori tidak ada di PDF, data asli dipertahankan)
     { id: 37, name: "Svara Cinta Wedding Content Creator", category: "content", price: 5000000, image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Konten kreator untuk dokumentasi pernikahan yang menarik" },
     { id: 70, name: "Svara cinta", category: "content", price: 350000, image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Konten kreator untuk dokumentasi pernikahan yang menarik" },
 
-    // Venue
-    { id: 38, name: "De Jehan Hotel", category: "venue", price: 25000000, image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Venue mewah dengan kapasitas hingga 500 tamu" },
-    { id: 39, name: "Santika Hotel", category: "venue", price: 18000000, image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Taman outdoor dengan suasana romantis dan natural" },
+    // Venue (Diperbarui dari PDF [cite: 282])
+    { id: 38, name: "D' Jehan Palace", category: "venue", price: 25000000, image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Venue mewah dengan kapasitas hingga 500 tamu" }, // Diperbarui dari "De Jehan Hotel" 
+    { id: 39, name: "Hotel Santika Premier", category: "venue", price: 18000000, image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Venue hotel dengan suasana romantis" }, // Diperbarui dari "Santika Hotel" [cite: 283]
+    // BARU DARI PDF
+    { id: 104, name: "Linggarjati", category: "venue", price: 15000000, image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Rekomendasi venue" }, // 
+    { id: 105, name: "Hotel Cordela", category: "venue", price: 18000000, image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Rekomendasi venue" }, // 
+    { id: 106, name: "Grage Resort", category: "venue", price: 20000000, image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Rekomendasi venue" }, // 
+    { id: 107, name: "Wisma Pepabri", category: "venue", price: 12000000, image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Rekomendasi venue" }, // 
+    { id: 108, name: "Saung Ema", category: "venue", price: 10000000, image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Rekomendasi venue" }, // 
 
-    // Catering
+    // Catering (Kategori tidak ada di PDF, data asli dipertahankan)
     { id: 42, name: "Alma Catering", category: "catering", price: 35000000, image: "https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Katering premium dengan menu internasional untuk 200 tamu" },
     { id: 71, name: "Aditya catering", category: "catering", price: 33000, image: "https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Paket mawar (33rb/pack)" },
     { id: 72, name: "Alma catering (Prasmanan)", category: "catering", price: 38000, image: "https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Prasmanan (38rb/pack)" },
 
-    // Dessert & Foodcourt
+    // Dessert & Foodcourt (Kategori tidak ada di PDF, data asli dipertahankan)
     { id: 44, name: "Znj Dessert", category: "dessert", price: 8000000, image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", description: "Dessert table dengan berbagai pilihan kue dan pastry" }
     ];
 
@@ -549,3 +562,4 @@ const vendorData = [
             `;
             document.head.appendChild(style);
         });
+
